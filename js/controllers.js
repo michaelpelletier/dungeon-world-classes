@@ -1,7 +1,7 @@
 function MainController($scope) {
   $scope.classData = classData;
-}
-
+  $scope.focus = "class";
+};
 
 var classData = [
   {
@@ -61,7 +61,7 @@ var classData = [
           {
               "name": "The Charlatan",
               "pack": "Merged Alternate Base Classes",
-"packLink": "https://dl.dropboxusercontent.com/u/13355093/4-25-13%20Merged%20DW%20Alternate%20Base%20Classes%2017%20total.pdf",
+              "packLink": "https://dl.dropboxusercontent.com/u/13355093/4-25-13%20Merged%20DW%20Alternate%20Base%20Classes%2017%20total.pdf",
               "author": "Sean Poncho"
           },
           {
@@ -204,7 +204,7 @@ var classData = [
           {
               "name": "The Barbarian",
               "pack": "Merged Alternate Base Classes",
-"packLink": "https://dl.dropboxusercontent.com/u/13355093/4-25-13%20Merged%20DW%20Alternate%20Base%20Classes%2017%20total.pdf"
+              "packLink": "https://dl.dropboxusercontent.com/u/13355093/4-25-13%20Merged%20DW%20Alternate%20Base%20Classes%2017%20total.pdf"
           },
           {
               "name": "The Barbarian",
@@ -234,7 +234,7 @@ var classData = [
           {
               "name": "The Gladiator",
               "pack": "Merged Alternate Base Classes",
-"packLink": "https://dl.dropboxusercontent.com/u/13355093/4-25-13%20Merged%20DW%20Alternate%20Base%20Classes%2017%20total.pdf"
+              "packLink": "https://dl.dropboxusercontent.com/u/13355093/4-25-13%20Merged%20DW%20Alternate%20Base%20Classes%2017%20total.pdf"
           },
           {
               "name": "The Gladiator",
@@ -481,7 +481,7 @@ var classData = [
           {
               "name": "The Leader",
               "pack": "Merged Alternate Base Classes",
-"packLink": "https://dl.dropboxusercontent.com/u/13355093/4-25-13%20Merged%20DW%20Alternate%20Base%20Classes%2017%20total.pdf"
+              "packLink": "https://dl.dropboxusercontent.com/u/13355093/4-25-13%20Merged%20DW%20Alternate%20Base%20Classes%2017%20total.pdf"
           },
           {
               "name": "The Redemption Seeker",
@@ -516,7 +516,7 @@ var classData = [
           {
               "name": "The True Knight",
               "pack": "Merged Alternate Base Classes",
-"packLink": "https://dl.dropboxusercontent.com/u/13355093/4-25-13%20Merged%20DW%20Alternate%20Base%20Classes%2017%20total.pdf"
+              "packLink": "https://dl.dropboxusercontent.com/u/13355093/4-25-13%20Merged%20DW%20Alternate%20Base%20Classes%2017%20total.pdf"
           },
           {
               "name": "The Turtle Knight",
@@ -718,7 +718,7 @@ var classData = [
           {
               "name": "The Warlock",
               "pack": "Merged Alternate Base Classes",
-"packLink": "https://dl.dropboxusercontent.com/u/13355093/4-25-13%20Merged%20DW%20Alternate%20Base%20Classes%2017%20total.pdf",
+              "packLink": "https://dl.dropboxusercontent.com/u/13355093/4-25-13%20Merged%20DW%20Alternate%20Base%20Classes%2017%20total.pdf",
               "author": "Mikan"
           },
           {
@@ -1313,7 +1313,7 @@ var classData = [
           {
               "name": "The Noble",
               "pack": "Merged Alternate Base Classes",
-"packLink": "https://dl.dropboxusercontent.com/u/13355093/4-25-13%20Merged%20DW%20Alternate%20Base%20Classes%2017%20total.pdf",
+              "packLink": "https://dl.dropboxusercontent.com/u/13355093/4-25-13%20Merged%20DW%20Alternate%20Base%20Classes%2017%20total.pdf",
               "author": "Jacob Randolph",
               "authorLink": "http://www.drivethrurpg.com/browse/pub/4996/Jacob-Randolph",
           },
@@ -1808,7 +1808,7 @@ var classData = [
           {
               "name": "The Grave Knight",
               "pack": "Merged Alternate Base Classes",
-"packLink": "https://dl.dropboxusercontent.com/u/13355093/4-25-13%20Merged%20DW%20Alternate%20Base%20Classes%2017%20total.pdf"
+              "packLink": "https://dl.dropboxusercontent.com/u/13355093/4-25-13%20Merged%20DW%20Alternate%20Base%20Classes%2017%20total.pdf"
           },
           {
               "name": "The Necromancer",
@@ -2064,4 +2064,4 @@ var classData = [
       }
     ]
   }
-]
+];
