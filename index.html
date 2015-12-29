@@ -1,0 +1,69 @@
+<html ng-app="portfolio_app">
+  <head>
+    <script type="text/javascript" src="lib/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="lib/angular.min.js"></script>
+
+    <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+  </head>
+
+
+
+
+
+
+  <body ng-controller="MainController">
+
+    <label>Search: <input ng-model="searchText"></label>
+    <br /><br />
+
+    <table ng-repeat="category in classData">
+      <thead>
+        <tr class="category" ng-click="category.expanded = !category.expanded">
+          <td colspan="5" ng-bind="category.name" ng-class="{true:'expanded', false:'collapsed'}[category.expanded]"></td>
+        </tr>
+      </thead>
+      <tbody ng-if="category.expanded" ng-repeat="subcategory in category.cats">
+        <tr class="subcategory" ng-click="subcategory.expanded = !subcategory.expanded">
+          <td colspan="5" ng-bind="subcategory.name" ng-class="{true:'expanded', false:'collapsed'}[subcategory.expanded]"></td>
+        </tr>
+        <tr ng-if="subcategory.expanded" ng-repeat="class in subcategory.classes | filter:searchText">
+          <td class="full">
+            <a ng-bind="class.name" ng-href="{{class.link}}" target="_blank"></a>
+          </td>
+          <td ng-bind="class.description"></td>
+          <td class="full">
+            <a ng-if="class.pack" ng-bind="class.pack" ng-href="{{class.packLink}}" target="_blank"></a>
+          </td>
+          <td class="full" ng-if="class.authorLink">
+            <a ng-bind="class.author" ng-href="{{class.authorLink}}" target="_blank"></a>
+          </td>
+          <td class="full" ng-if="!class.authorLink" ng-bind="class.author"></td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+
+<!--<td>
+              <button ng-if="person.expanded" ng-click="person.expanded = false">-</button>
+              <button ng-if="!person.expanded" ng-click="person.expanded = true">+</button>
+            </td>
+            <td>{{person.name}}</td>
+            <td>{{person.gender}}</td>
+          </tr>
+          <tr ng-if="person.expanded" ng-repeat-end="">
+            <td colspan="3">{{person.details}}</td>
+          </tr>-->
+
+
+
+
+
+
+
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/controllers.js"></script>
+
+</body>
+</html>
