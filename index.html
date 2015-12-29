@@ -6,13 +6,17 @@
     <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
   </head>
 
-
-
-
-
-
   <body ng-controller="MainController">
 
+
+
+  <section class="navigation">
+    <div ng-click="focus = 'class'">Classes</div>
+    <div ng-click="focus = 'new'">Creating a Class</div>
+    About
+  </section>
+
+  <section class="classes" ng-if="focus = 'class'">
     <label>Search: <input ng-model="searchText"></label>
     <br /><br />
 
@@ -41,22 +45,7 @@
         </tr>
       </tbody>
     </table>
-
-
-
-
-<!--<td>
-              <button ng-if="person.expanded" ng-click="person.expanded = false">-</button>
-              <button ng-if="!person.expanded" ng-click="person.expanded = true">+</button>
-            </td>
-            <td>{{person.name}}</td>
-            <td>{{person.gender}}</td>
-          </tr>
-          <tr ng-if="person.expanded" ng-repeat-end="">
-            <td colspan="3">{{person.details}}</td>
-          </tr>-->
-
-
+  </section>
 
 
 
