@@ -31,7 +31,7 @@
       </section>
     </nav>
 
-    <section id="classes" ng-show="focus === 'class'">
+    <section id="classes" ng-if="focus === 'class'">
       <div class="search-section">
         <label>Search Classes: <input ng-model="searchText"></label>
       </div>
@@ -69,11 +69,11 @@
       </table>
     </section>
 
-    <section id="new" ng-show="focus === 'new'">
+    <section id="new" ng-if="focus === 'new'">
       Creating a Class. http://daegames.blogspot.com/2014/09/dungeon-world-when-you-want-to-write.html
     </section>
 
-    <section id="about" ng-show="focus === 'about'">
+    <section id="about" ng-if="focus === 'about'">
       <div class="about-sidebar">
         <div class="section-category">About</div>
         <div class="content">
@@ -180,7 +180,7 @@
       </div>
     </section>
 
-    <section id="resources" ng-show="focus === 'resources'">
+    <section id="resources" ng-if="focus === 'resources'">
       <div class="section-category">Resources</div>
       <div class="section-subcategory">Sites / Communities</div>
       <div class="content">
