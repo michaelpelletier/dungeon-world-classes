@@ -9,7 +9,21 @@ function MainController($scope, $http) {
   $scope.focus = 'class';
   $scope.classData = classData;
   $scope.submitted = false;
+
+
+  $.ajax({
+    url: "http://michaelpelletier.github.io/dungeon-world-classes/classes.json.js",
+    dataType: "jsonp",
+    jsonpCallback: "michaelpelletier/dungeon-world-classes:classes",
+    success: function(data) {
+      console.log(data)
+    }
+  })
+
 };
+
+
+
 
 var classData = [
   {
