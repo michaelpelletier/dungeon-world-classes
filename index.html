@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" ng-app="dwclasses">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="App">
   <head>
 
     <meta http-equiv="last-modified" content="Sun, 10 Feb 2013 14:00:46 GMT " />
@@ -11,13 +11,14 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
     <link href='https://fonts.googleapis.com/css?family=Metal+Mania' rel='stylesheet' type='text/css'>
-    <link href="style.min.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
 
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.5/angular.min.js"></script>
     <title>Dungeon World Classes</title>
   </head>
 
-  <body ng-controller="MainController">
+  <body ng-controller="MainCtrl">
     <nav>
       <section>
         <a id="logo" href="index.html">Dungeon World Classes</a>
@@ -67,21 +68,35 @@
               <div class="set-column">Author</div>
             </div>
             <div class="cells" ng-if="subcategory.expanded" ng-repeat="class in subcategory.classes | filter:searchText">
-              <div class="set-column">
+              <div class="column set-column class-name">
                 <a ng-bind="class.name" ng-href="{{class.link}}" target="_blank"></a>
               </div>
-              <div ng-bind="class.description"></div>
-              <div class="set-column" ng-class="{empty: class.pack === undefined}">
-                <a ng-if="class.pack" ng-bind="class.pack" ng-href="{{class.packLink}}" target="_blank"></a>
+              <div class="column" ng-class="{empty: class.description === undefined}">
+                <span ng-bind="class.description"></span>
               </div>
-              <div class="set-column" ng-if="class.authorLink">
-                <a ng-bind="class.author" ng-href="{{class.authorLink}}" target="_blank"></a>
+              <div class="column set-column pack" ng-class="{empty: class.pack === undefined}">
+                <div class-pack content="{{class}}"></div>
               </div>
-              <div class="set-column" ng-if="!class.authorLink" ng-bind="class.author"></div>
+              <div class="column set-column" ng-class="{empty: class.author === undefined}">
+                <div author content="{{class}}"></div>
+
+                <div class="combined">
+                  <div class-pack content="{{class}}"></div>
+                  <div author content="{{class}}"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+
+
+
+
+
+
+
     </section>
 
     <section id="new" class="page" ng-show="focus === 'new'" ng-cloak>
@@ -207,105 +222,105 @@
     </section>
 
     <section id="contact" class="page" ng-show="focus === 'contact'" ng-cloak>
-        <div class="category">Contact</div>
-        <div class="subcategory">Feedback</div>
-        <div class="content">
-          If you would like to leave Feedback of any kind, please use the form below. I can also be found on Reddit as <a href="https://www.reddit.com/user/mpelletier/" target="_blank">/u/mpelletier</a> or via my personal site at <a href="http://www.mpelletier.net" target="_blank">mpelletier.net</a>.
+      <div class="category">Contact</div>
+      <div class="subcategory">Feedback</div>
+      <div class="content">
+        If you would like to leave Feedback of any kind, please use the form below. I can also be found on Reddit as <a href="https://www.reddit.com/user/mpelletier/" target="_blank">/u/mpelletier</a> or via my personal site at <a href="http://www.mpelletier.net" target="_blank">mpelletier.net</a>.
 
-          <div class="thanks" ng-show="submitted === true">
-            Thanks for your comments!
-          </div>
-
-          <div class="form" ng-show="submitted === false">
-            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-
-            <form action="https://docs.google.com/forms/d/1RliG_455nhKmB0SIa5fixEXLnqZLx_emboVhcNjEn4c/formResponse?embedded=true" method="POST" id="ss-form" target="hidden_iframe" ng-submit="submitted = true">
-
-              <label for="entry_630685271">Select Feedback Type</label>
-              <ul>
-                <li>
-                  <label>
-                    <input type="radio" name="entry.1603133261" value="Broken/Outdated Download Link" id="group_1603133261_1" role="radio" aria-label="Broken/Outdated Download Link">
-                    <span class="ss-choice-label">Broken/Outdated Download Link</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="entry.1603133261" value="New Class/Resources to Add" id="group_1603133261_2" role="radio" aria-label="New Class/Resources to Add">
-                    <span class="ss-choice-label">New Class/Resources to Add</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="entry.1603133261" value="General Comment / Question" id="group_1603133261_3" role="radio" aria-label="General Comment / Question">
-                    <span class="ss-choice-label">General Comment / Question</span>
-                  </label>
-                </li>
-              </ul>
-
-              <div>
-                <label for="entry_6133229">Feedback <div>(This field is required. Please enter at least 10 characters.)</div></label>
-                <textarea name="entry.6133229" rows="8" cols="20" id="entry_6133229" dir="auto" aria-label="Feedback  Must be at least 10 characters." aria-required="true" required="" aria-invalid="true"></textarea>
-
-                <input type="hidden" name="draftResponse" value="[,,&quot;3308860938381739394&quot;]">
-                <input type="hidden" name="pageHistory" value="0">
-                <input type="hidden" name="fvv" value="0">
-                <input type="hidden" name="fbzx" value="3308860938381739394">
-
-                <input type="submit" name="submit" value="Submit" id="ss-submit" class="button active">
-              </div>
-            </form>
-          </div>
+        <div class="thanks" ng-show="submitted === true">
+          Thanks for your comments!
         </div>
-        <div class="subcategory">About</div>
-        <div class="content">
-          <p>
-            The intent of this site is to be a resource for finding third party
-            classes for Dungeon World. It was inspired by <a
-            href="http://nerdwerds.blogspot.com/2013/04/dungeon-world-resources.html"
-            target="_blank">The Nerdwerd's Post</a> about Dungeon World Resources,
-            as well as the <a href="https://docs.google.com/spreadsheets/u/1/d/tT40-jw0aF56DcshZHxOm_g/htmlview"
-            target="_blank">Big List of Dungeon World Classes</a>, both of which
-            are unfortunately fairly consistently out of date.
-          </p>
-          <p>
-            I initially tried to make a <a href="https://www.reddit.com/r/DungeonWorld/comments/3ycr50/complete_list_of_dungeon_world_classes/"
-            target="_blank">Reddit Post</a> and contribute to the Wiki but the
-            amount of data made it unpractical with the limited tools available.
-            It also offered nothing along the lines of searching, collapsing
-            sections, etc.
-          </p>
-          <p>
-            This site also allows the freedom of creating a section that the other
-            formats did not allow for, which is a walkthrough on Creating a Class.
-            I consider this an incredibly important addition.
-          </p>
-          <p>
-            I have attempted not to link any unintentional / unsanctioned releases
-            of paid work. If I've made an error, please do let me know. When possible,
-            I have tried to link the thread that announced the project for ease of
-            getting in touch with the author for any feedback.
-          </p>
-          <p>
-            Currently the PDFs and Docs are hosted where the creator uploaded them
-            - whether that's Dropbox or MediaFire or a purchase through
-            DriveThruRPG. This means that I do not have any control over whether a
-            link goes down. I am considering hosting the free copies myself, but
-            am uncertain about whether that's a good idea, since it involves the
-            creators having to get in touch with <i>me</i> when they want something
-            removed - an idea that I am against.
-          </p>
-          <p>
-            This list does not currently contain any Compendium Classes, nor
-            anything that was exclusively posted to the Something Awful Forums.
-          </p>
-          <p>
-            I have tried to group things together in a reasonable way while trying
-            too to keep the groups from becoming too sprawling. The Magic classes
-            in general are broken up in fairly arbitrary ways. I obviously have not
-            read every single playbook, so if something is better suited to a
-            different location, please do let me know.
-          </p>
+
+        <div class="form" ng-show="submitted === false">
+          <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+          <form action="https://docs.google.com/forms/d/1RliG_455nhKmB0SIa5fixEXLnqZLx_emboVhcNjEn4c/formResponse?embedded=true" method="POST" id="ss-form" target="hidden_iframe" ng-submit="submitted = true">
+
+            <label for="entry_630685271">Select Feedback Type</label>
+            <ul>
+              <li>
+                <label>
+                  <input type="radio" name="entry.1603133261" value="Broken/Outdated Download Link" id="group_1603133261_1" role="radio" aria-label="Broken/Outdated Download Link">
+                  <span class="ss-choice-label">Broken/Outdated Download Link</span>
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="radio" name="entry.1603133261" value="New Class/Resources to Add" id="group_1603133261_2" role="radio" aria-label="New Class/Resources to Add">
+                  <span class="ss-choice-label">New Class/Resources to Add</span>
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="radio" name="entry.1603133261" value="General Comment / Question" id="group_1603133261_3" role="radio" aria-label="General Comment / Question">
+                  <span class="ss-choice-label">General Comment / Question</span>
+                </label>
+              </li>
+            </ul>
+
+            <div>
+              <label for="entry_6133229">Feedback <div>(This field is required. Please enter at least 10 characters.)</div></label>
+              <textarea name="entry.6133229" rows="8" cols="20" id="entry_6133229" dir="auto" aria-label="Feedback  Must be at least 10 characters." aria-required="true" required="" aria-invalid="true"></textarea>
+
+              <input type="hidden" name="draftResponse" value="[,,&quot;3308860938381739394&quot;]">
+              <input type="hidden" name="pageHistory" value="0">
+              <input type="hidden" name="fvv" value="0">
+              <input type="hidden" name="fbzx" value="3308860938381739394">
+
+              <input type="submit" name="submit" value="Submit" id="ss-submit" class="button active">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="subcategory">About</div>
+      <div class="content">
+        <p>
+          The intent of this site is to be a resource for finding third party
+          classes for Dungeon World. It was inspired by <a
+          href="http://nerdwerds.blogspot.com/2013/04/dungeon-world-resources.html"
+          target="_blank">The Nerdwerd's Post</a> about Dungeon World Resources,
+          as well as the <a href="https://docs.google.com/spreadsheets/u/1/d/tT40-jw0aF56DcshZHxOm_g/htmlview"
+          target="_blank">Big List of Dungeon World Classes</a>, both of which
+          are unfortunately fairly consistently out of date.
+        </p>
+        <p>
+          I initially tried to make a <a href="https://www.reddit.com/r/DungeonWorld/comments/3ycr50/complete_list_of_dungeon_world_classes/"
+          target="_blank">Reddit Post</a> and contribute to the Wiki but the
+          amount of data made it unpractical with the limited tools available.
+          It also offered nothing along the lines of searching, collapsing
+          sections, etc.
+        </p>
+        <p>
+          This site also allows the freedom of creating a section that the other
+          formats did not allow for, which is a walkthrough on Creating a Class.
+          I consider this an incredibly important addition.
+        </p>
+        <p>
+          I have attempted not to link any unintentional / unsanctioned releases
+          of paid work. If I've made an error, please do let me know. When possible,
+          I have tried to link the thread that announced the project for ease of
+          getting in touch with the author for any feedback.
+        </p>
+        <p>
+          Currently the PDFs and Docs are hosted where the creator uploaded them
+          - whether that's Dropbox or MediaFire or a purchase through
+          DriveThruRPG. This means that I do not have any control over whether a
+          link goes down. I am considering hosting the free copies myself, but
+          am uncertain about whether that's a good idea, since it involves the
+          creators having to get in touch with <i>me</i> when they want something
+          removed - an idea that I am against.
+        </p>
+        <p>
+          This list does not currently contain any Compendium Classes, nor
+          anything that was exclusively posted to the Something Awful Forums.
+        </p>
+        <p>
+          I have tried to group things together in a reasonable way while trying
+          too to keep the groups from becoming too sprawling. The Magic classes
+          in general are broken up in fairly arbitrary ways. I obviously have not
+          read every single playbook, so if something is better suited to a
+          different location, please do let me know.
+        </p>
       </div>
     </section>
 

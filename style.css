@@ -293,51 +293,81 @@ nav section {
         CLASSES TABLE
    ===================================== */
 
-div.table-section {
+.table-section {
   display: table;
   font-size: 12px;
   width: 100%;
 }
 
-div.labels,
-div.cells {
+.labels,
+.cells {
   display: table-row;
 }
 
-div.labels div,
-div.cells div {
+.labels div,
+.column {
   display: table-cell;
   padding: 10px;
 }
 
-div.labels,
-div.cells:nth-child(odd) {
+.labels,
+.cells:nth-child(odd) {
   background: #f7f7f7;
 }
 
 .set-column {
   text-align: center;
+  vertical-align: middle;
   width: 10%;
 }
 
+.small {
+  display: none;
+}
+
+.combined {
+  display: none;
+  font-size: 12px;
+  padding: 0px;
+  text-align: right;
+  width: 100%;
+}
+
 @media (max-width: 768px) {
-  div.labels,
-  div.cells {
+  .cells {
     display: block;
     width: 100%;
   }
 
-  div.cells div {
+  .combined {
     display: block;
+  }
+
+  .class-name {
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .column {
+    display: block;
+    font-size: 14px;
     width: calc(100% - 20px);
   }
 
-  div.cells div.empty {
+  .small {
+    display: inline-block;
+    width: auto;
+  }
+
+  .labels,
+  .empty,
+  .pack,
+  .author {
     display: none;
   }
 
-  .set-column {
-    text-align: left;
+  .combined .author {
+    display: inline-block;
   }
 }
 

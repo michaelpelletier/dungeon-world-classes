@@ -1,15 +1,73 @@
-var DWClasses = DWClasses || {}
+var app = angular.module('App', []);
 
-DWClasses = angular.module('dwclasses', ['dwclasses.controllers', 'dwclasses.directives']);
-
-DWClasses.Controllers = angular.module('dwclasses.controllers', []);
-DWClasses.Directives = angular.module('dwclasses.directives', []);
-
-function MainController($scope, $http) {
+app.controller('MainCtrl', function($scope) {
   $scope.focus = 'class';
   $scope.classData = classData;
   $scope.submitted = false;
-};
+});
+
+app.directive('classPack', function($compile) {
+  return {
+    replace: true,
+    scope: {
+      content: '@'
+    },
+    link: function($scope, $element, $attrs) {
+      var html = '';
+      var json = JSON.parse($attrs.content)
+
+      if (json.pack) {
+        html += '<span><span class="small">Part of</span> ';
+        html += '<a href="' + json.packLink + '" target="_blank">';
+        html += json.pack;
+        html += '</a><span class="small">.</span></span></div>';
+      } else {
+      }
+
+      var stuff = angular.element(html)
+      var replacementElement = $compile(stuff)($scope);
+      $element.replaceWith(replacementElement);
+      $element = replacementElement;
+
+    }
+  }
+});
+
+app.directive('author', function($compile) {
+  return {
+    replace: true,
+    scope: {
+      content: '@'
+    },
+    link: function($scope, $element, $attrs) {
+      var html = '';
+      var json = JSON.parse($attrs.content)
+
+      if (json.author) {
+        html += '<div class="author"><span class="small">By</span> ';
+
+        if (json.authorLink) {
+          html += '<a href="' + json.authorLink + '" target="_blank">';
+          html += json.author;
+          html += '</a>';
+        } else {
+          html += json.author;
+        }
+
+        html += '<span class="small">.</span></div>';
+      } else {
+        html += '<div class="set-column empty"></div>';
+      }
+
+      var stuff = angular.element(html)
+      var replacementElement = $compile(stuff)($scope);
+      $element.replaceWith(replacementElement);
+      $element = replacementElement;
+
+    }
+  }
+});
+
 
 var classData = [
   {
