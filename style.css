@@ -4,13 +4,6 @@
         BASE STYLES
    ===================================== */
 
-* {
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-}
-
 html {
   font-size: 100%;
   overflow-y: scroll;
@@ -21,6 +14,7 @@ html {
 body {
   background: #FFF;
   color: #777;
+  font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 14px;
   line-height: 1.5;
   margin: 0;
@@ -29,7 +23,6 @@ body {
 a, a:active, a:visited {
   color: #73C482;
   cursor: pointer;
-  font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-weight: normal;
   position: relative;
   text-decoration: none;
@@ -49,7 +42,7 @@ a:hover {
 }
 
 [ng-cloak]#loading {
-  display: block!important;
+  display: block!important; /* Overwrite default ng-cloak behaviour. */
   padding-top: 200px;
   text-align: center;
 }
@@ -97,20 +90,20 @@ lesshat-selector {
         FORM FIELDS
    ===================================== */
 
-input {
-  background-color: #f6f6f6;
+input, textarea {
   border: 1px solid #ebebeb;
   font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 16px;
+}
+
+input {
+  background-color: #f6f6f6;
   font-style: italic;
   height: 30px;
   padding: 0 10px;
 }
 
 textarea {
-  border: 1px solid #ebebeb;
-  font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 16px;
   resize: vertical;
   width: 100%;
 }
@@ -140,8 +133,7 @@ label div {
   font-style: italic;
 }
 
-
-ol {
+ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -166,7 +158,6 @@ li label {
   border-radius: 3px;
   color: #FFF;
   cursor: pointer;
-  font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 14px;
   letter-spacing: 1px;
   line-height: 20px;
@@ -269,12 +260,6 @@ nav section {
   max-height: 220px;
 }
 
-#mobile-menu ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
 #mobile-menu .button {
   border-radius: 0px;
   width: 100%;
@@ -297,7 +282,8 @@ nav section {
 }
 
 @media (min-width: 768px) {
-  #mobile-menu {
+  #mobile-menu,
+  #mobile-menu.active {
     max-height: 0px;
   }
 }
@@ -306,48 +292,43 @@ nav section {
         CLASSES TABLE
    ===================================== */
 
-table {
-  border-collapse: collapse;
+div.table-section {
+  display: table;
   font-size: 12px;
-  margin: 0 auto;
   width: 100%;
 }
 
-tbody tr:nth-child(even) {
-  background: #f7f7f7;
+div.labels,
+div.cells {
+  display: table-row;
 }
 
-td {
+div.labels div,
+div.cells div {
+  display: table-cell;
   padding: 10px;
+}
+
+div.labels,
+div.cells:nth-child(odd) {
+  background: #f7f7f7;
 }
 
 .set-column {
   width: 10%;
 }
 
+@media (max-width: 768px) {
+  div.labels,
+  div.cells,
+  div.cells div {
+    display: block;
+    width: 100%;
+  }
 
-/* Headers and Subheaders */
-.category {
-  background: #73C482;
-  border-bottom: 1px solid #4E8758;
-  color: #FFF;
-  font-size: 14px;
-  padding: 10px;
-}
-
-.category:hover {
-  background: #4E8758;
-}
-
-.subcategory {
-  background: #ddd;
-  border-bottom: 1px solid #ccc;
-  color: #333;
-  font-size: 14px;
-}
-
-.subcategory:hover {
-  background: #ccc;
+  div.cells div.empty {
+    display: none;
+  }
 }
 
 .labels {
@@ -377,7 +358,6 @@ td {
   text-align: right;
 }
 
-
 /* =====================================
         GENERAL PAGE CONTENT
    ===================================== */
@@ -387,22 +367,6 @@ section {
   padding-top: 120px;
   position: relative;
   width: 90%;
-}
-
-.section-category {
-  background: #73C482;
-  border-bottom: 1px solid #4E8758;
-  color: #FFF;
-  font-size: 18px;
-  padding: 10px;
-}
-
-.section-subcategory {
-  background: #ddd;
-  border-bottom: 1px solid #ccc;
-  color: #333;
-  font-size: 14px;
-  padding: 10px;
 }
 
 .content {
@@ -416,6 +380,49 @@ section {
 
 .content p:last-child {
   margin-bottom: 0;
+}
+
+/* =====================================
+        SECTION HEADERS
+   ===================================== */
+
+.category {
+  background-color: #73C482;
+  border-bottom: 1px solid #4E8758;
+  color: #FFF;
+  font-size: 14px;
+  padding: 10px;
+}
+
+.category:hover {
+  background-color: #4E8758;
+}
+
+.subcategory {
+  background-color: #ddd;
+  border-bottom: 1px solid #ccc;
+  color: #333;
+  font-size: 14px;
+  padding: 10px;
+}
+
+.subcategory:hover {
+  background-color: #ccc;
+}
+
+#resources .category,
+#about .category {
+  font-size: 16px;
+}
+
+
+#resources .category:hover,
+#about .category:hover {
+  background-color: #73C482;
+}
+
+#resources .subcategory:hover {
+  background: #ddd;
 }
 
 /* =====================================
@@ -470,8 +477,3 @@ section {
     width: 100%;
   }
 }
-
-
-
-
-

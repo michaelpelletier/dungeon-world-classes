@@ -55,37 +55,33 @@
         <label>Search Classes: <input ng-model="searchText"></label>
       </div>
 
-      <table ng-repeat="category in classData">
-        <thead>
-          <tr class="category" ng-click="category.expanded = !category.expanded">
-            <td colspan="5" ng-bind="category.name" ng-class="{true:'expanded', false:'collapsed'}[category.expanded]"></td>
-          </tr>
-        </thead>
-        <tbody ng-if="category.expanded" ng-repeat="subcategory in category.cats">
-          <tr class="subcategory" ng-click="subcategory.expanded = !subcategory.expanded">
-            <td colspan="5" ng-bind="subcategory.name" ng-class="{true:'expanded', false:'collapsed'}[subcategory.expanded]"></td>
-          </tr>
-          <tr ng-if="subcategory.expanded" class="labels">
-            <td class="set-column">Class</td>
-            <td>Description</td>
-            <td class="set-column">Pack</td>
-            <td class="set-column">Author</td>
-          </tr>
-          <tr ng-if="subcategory.expanded" ng-repeat="class in subcategory.classes | filter:searchText">
-            <td class="set-column">
-              <a ng-bind="class.name" ng-href="{{class.link}}" target="_blank"></a>
-            </td>
-            <td ng-bind="class.description"></td>
-            <td class="set-column">
-              <a ng-if="class.pack" ng-bind="class.pack" ng-href="{{class.packLink}}" target="_blank"></a>
-            </td>
-            <td class="set-column" ng-if="class.authorLink">
-              <a ng-bind="class.author" ng-href="{{class.authorLink}}" target="_blank"></a>
-            </td>
-            <td class="full" ng-if="!class.authorLink" ng-bind="class.author"></td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table" ng-repeat="category in classData">
+        <div class="category" ng-click="category.expanded = !category.expanded" ng-bind="category.name" ng-class="{true:'expanded', false:'collapsed'}[category.expanded]"></div>
+        <div ng-if="category.expanded" ng-repeat="subcategory in category.cats">
+          <div class="subcategory" ng-bind="subcategory.name" ng-class="{true:'expanded', false:'collapsed'}[subcategory.expanded]" ng-click="subcategory.expanded = !subcategory.expanded"></div>
+          <div class="table-section">
+            <div class="labels" ng-if="subcategory.expanded">
+              <div class="set-column">Class</div>
+              <div>Description</div>
+              <div class="set-column">Pack</div>
+              <div class="set-column">Author</div>
+            </div>
+            <div class="cells" ng-if="subcategory.expanded" ng-repeat="class in subcategory.classes | filter:searchText">
+              <div class="set-column">
+                <a ng-bind="class.name" ng-href="{{class.link}}" target="_blank"></a>
+              </div>
+              <div ng-bind="class.description"></div>
+              <div class="set-column" ng-class="{empty: class.pack === undefined}">
+                <a ng-if="class.pack" ng-bind="class.pack" ng-href="{{class.packLink}}" target="_blank"></a>
+              </div>
+              <div class="set-column" ng-if="class.authorLink">
+                <a ng-bind="class.author" ng-href="{{class.authorLink}}" target="_blank"></a>
+              </div>
+              <div class="full" ng-if="!class.authorLink" ng-bind="class.author"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="new" ng-show="focus === 'new'" ng-cloak>
@@ -94,7 +90,7 @@
 
     <section id="about" ng-show="focus === 'about'" ng-cloak>
       <div class="about-sidebar">
-        <div class="section-category">About</div>
+        <div class="category">About</div>
         <div class="content">
           <p>
             The intent of this site is to be a resource for finding third party
@@ -147,7 +143,7 @@
       </div>
 
       <div class="feedback">
-        <div class="section-category">Feedback / Contact</div>
+        <div class="category">Feedback / Contact</div>
         <div class="content">
           If you would like to leave Feedback of any kind, please use the form below. I can also be found on Reddit as <a href="https://www.reddit.com/user/mpelletier/" target="_blank">/u/mpelletier</a> or via my personal site at <a href="http://www.mpelletier.net" target="_blank">mpelletier.net</a>.
 
@@ -161,7 +157,7 @@
             <form action="https://docs.google.com/forms/d/1RliG_455nhKmB0SIa5fixEXLnqZLx_emboVhcNjEn4c/formResponse?embedded=true" method="POST" id="ss-form" target="hidden_iframe" ng-submit="submitted = true">
 
               <label for="entry_630685271">Select Feedback Type</label>
-              <ol>
+              <ul>
                 <li>
                   <label>
                     <input type="radio" name="entry.1603133261" value="Broken/Outdated Download Link" id="group_1603133261_1" role="radio" aria-label="Broken/Outdated Download Link">
@@ -180,7 +176,7 @@
                     <span class="ss-choice-label">General Comment / Question</span>
                   </label>
                 </li>
-              </ol>
+              </ul>
 
               <div>
                 <label for="entry_6133229">Feedback <div>(This field is required. Please enter at least 10 characters.)</div></label>
@@ -200,22 +196,22 @@
     </section>
 
     <section id="resources" ng-show="focus === 'resources'" ng-cloak>
-      <div class="section-category">Resources</div>
-      <div class="section-subcategory">Sites / Communities</div>
+      <div class="category">Resources</div>
+      <div class="subcategory">Sites / Communities</div>
       <div class="content">
         <a href="http://www.dungeon-world.com" target="_blank">Official Site</a>
         <a href="http://www.dungeonworldsrd.com" target="_blank">Dungeon World SRD</a>
         <a href="https://www.reddit.com/r/DungeonWorld" target="_blank">/r/DungeonWorld on Reddit</a>
         <a href="https://plus.google.com/communities/100084733231320276299" target="_blank">Dungeon World Tavern on Google+</a>
       </div>
-      <div class="section-subcategory">Other Resources</div>
+      <div class="subcategory">Other Resources</div>
       <div class="content">
         <a href="https://redboxvancouver.wordpress.com/2014/10/14/class-warfare-character-and-class-creation-for-dungeon-world/" target="_blank">Class Warfare</a>
         <a href="" target="_blank">Dungeon World Guide</a>
         <a href="http://www.drivethrurpg.com/product/156979/The-Perilous-Wilds" target="_blank">The Perilous Wilds</a>
         <a href="http://codex.dungeon-world.com/" target="_blank">Monster Builder</a>
       </div>
-      <div class="section-subcategory">Actual Plays</div>
+      <div class="subcategory">Actual Plays</div>
       <div class="content">
         <a href="https://www.youtube.com/playlist?list=PL-oTJHKXHicRNYOc9unj3D1GMzjz_i6V2" target="_blank">RollPlay</a>
         <a href="https://www.youtube.com/watch?v=Lo44CRPbWLU&list=PLSOKvcIdcJJevC-0LFZKQpHq3CsE5e-7K" target="_blank">Missclik's Meat Grinder</a>
