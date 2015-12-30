@@ -1,6 +1,7 @@
 function MainController($scope) {
+  $scope.focus = 'class';
   $scope.classData = classData;
-  $scope.focus = "class";
+
 };
 
 var classData = [

@@ -1,36 +1,126 @@
+@import url(https://fonts.googleapis.com/css?family=Metal+Mania:400);
+
+/* =====================================
+        BASE STYLES
+   ===================================== */
+
+html {
+  font-size: 100%;
+  overflow-y: scroll;
+  -webkit-text-size-adjust: 100%;∂
+  -ms-text-size-adjust: 100%;
+}
 
 body {
+  background: #FFF;
   color: #777;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
 }
+
+a, a:active, a:visited {
+  color: #73C482;
+  cursor: pointer;
+  font-family: "Montserrat";
+  font-weight: normal;
+  position: relative;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #4E8758;
+  text-decoration: underline;
+}
+
+
+/* =====================================
+        MAIN NAV
+   ===================================== */
+
+#logo {
+  color: #73C482;
+  font-family: 'Metal Mania', "Helvetica Neue", Helvetica, Arial, cursive;
+  font-size: 21px;
+  padding: 15px 0;
+}
+
+nav {
+  background-color: #222;
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+}
+
+nav div {
+  display: inline-block;
+}
+
+nav section {
+  padding-top: 0;
+}
+
+#nav-links {
+  float: right;
+}
+
+#nav-links div {
+  border-radius: 3px;
+  color: #FFF;
+  cursor: pointer;
+  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  line-height: 20px;
+  padding: 15px;
+  text-transform: uppercase;
+}
+
+#nav-links div:hover {
+  color: #73C482
+}
+
+#nav-links div.active {
+  background-color: #73C482;
+  color: #FFF;
+}
+
+#nav-links div.active:hover {
+  background-color: #4E8758;
+  color: #FFF;
+}
+
+/* =====================================
+        CLASSES TABLE
+   ===================================== */
 
 table {
   border-collapse: collapse;
   font-size: 12px;
   margin: 0 auto;
-  width: 90%;
-}
-
-td {
-  padding: 10px;
+  width: 100%;
 }
 
 tbody tr:nth-child(even) {
   background: #f7f7f7;
 }
 
-.full {
+td {
+  padding: 10px;
+}
+
+.set-column {
   width: 10%;
 }
 
 
-
-
-
+/* Headers and Subheaders */
 .category {
   background: #73C482;
   border-bottom: 1px solid #4E8758;
   color: #FFF;
   font-size: 18px;
+  padding: 10px;
 }
 
 .category:hover {
@@ -48,8 +138,7 @@ tbody tr:nth-child(even) {
   background: #ccc;
 }
 
-
-
+/* Icons */
 .expanded, .collapsed {
   background-position: center right;
   background-repeat: no-repeat;
@@ -66,12 +155,67 @@ tbody tr:nth-child(even) {
 }
 
 
-a, a:active, a:visited {
-  color: #73C482;
-  text-decoration: none;
+/* =====================================
+        GENERAL PAGE CONTENT
+   ===================================== */
+
+section {
+  margin: 0 auto;
+  padding-top: 120px;
+  width: 90%;
 }
 
-a:hover {
-  color: #4E8758;
-  text-decoration: underline;
+.section-category {
+  background: #73C482;
+  border-bottom: 1px solid #4E8758;
+  color: #FFF;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.section-subcategory {
+  background: #ddd;
+  border-bottom: 1px solid #ccc;
+  color: #333;
+  font-size: 14px;
+  padding: 10px;
+}
+
+.content {
+  background-color: #f7f7f7;
+  padding: 20px;
+}
+
+.content p:first-child {
+  margin-top: 0;
+}
+
+.content p:last-child {
+  margin-bottom: 0;
+}
+
+/* =====================================
+        FOOTER
+   ===================================== */
+
+#copyright {
+  font-size: 12px;
+  padding: 25px;
+  text-align: center;
+}
+
+/* =====================================
+        INDIVIDUAL PAGE TWEAKS
+   ===================================== */
+
+#resources a {
+  display: inline-block;
+    width: 170px;
+    vertical-align: top;
+    text-align: center;
+    margin: 0px 20px;
+}
+
+.form {
+  text-align: center;
 }

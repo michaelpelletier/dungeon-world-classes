@@ -1,54 +1,170 @@
-<html ng-app="portfolio_app">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="portfolio_app">
   <head>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
     <script type="text/javascript" src="lib/jquery-2.1.0.min.js"></script>
     <script type="text/javascript" src="lib/angular.min.js"></script>
+
+    <title>Dungeon World Classes</title>
 
     <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
   </head>
 
   <body ng-controller="MainController">
+    <nav>
+      <section>
+        <div id="logo">Dungeon World Classes</div>
+        <div id="nav-links">
+          <div ng-click="focus = 'class'" ng-class="{active: focus === 'class'}">Classes</div>
+          <div ng-click="focus = 'new'" ng-class="{active: focus === 'new'}">Creating a Class</div>
+          <div ng-click="focus = 'resources'" ng-class="{active: focus === 'resources'}">Resources</div>
+          <div ng-click="focus = 'about'" ng-class="{active: focus === 'about'}">About</div>
+          <div ng-click="focus = 'contact'" ng-class="{active: focus === 'contact'}">Contact</div>
+        </div>
+      </section>
+    </nav>
+
+    <section id="classes" ng-show="focus === 'class'">
+      <label>Search: <input ng-model="searchText"></label>
+      <br /><br />
+
+      <table ng-repeat="category in classData">
+        <thead>
+          <tr class="category" ng-click="category.expanded = !category.expanded">
+            <td colspan="5" ng-bind="category.name" ng-class="{true:'expanded', false:'collapsed'}[category.expanded]"></td>
+          </tr>
+        </thead>
+        <tbody ng-if="category.expanded" ng-repeat="subcategory in category.cats">
+          <tr class="subcategory" ng-click="subcategory.expanded = !subcategory.expanded">
+            <td colspan="5" ng-bind="subcategory.name" ng-class="{true:'expanded', false:'collapsed'}[subcategory.expanded]"></td>
+          </tr>
+          <tr ng-if="subcategory.expanded" ng-repeat="class in subcategory.classes | filter:searchText">
+            <td class="set-column">
+              <a ng-bind="class.name" ng-href="{{class.link}}" target="_blank"></a>
+            </td>
+            <td ng-bind="class.description"></td>
+            <td class="set-column">
+              <a ng-if="class.pack" ng-bind="class.pack" ng-href="{{class.packLink}}" target="_blank"></a>
+            </td>
+            <td class="set-column" ng-if="class.authorLink">
+              <a ng-bind="class.author" ng-href="{{class.authorLink}}" target="_blank"></a>
+            </td>
+            <td class="full" ng-if="!class.authorLink" ng-bind="class.author"></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="new" ng-show="focus === 'new'">
+      Creating a Class. http://daegames.blogspot.com/2014/09/dungeon-world-when-you-want-to-write.html
+    </section>
+
+    <section id="about" ng-show="focus === 'about'">
+      <div class="section-category">About</div>
+      <div class="content">
+      <p>
+        This is my third attempt at creating a method for viewing a complete
+        list of third-party classes for Dungeon World. It was inspired by <a
+        href="http://nerdwerds.blogspot.com/2013/04/dungeon-world-resources.html"
+        target="_blank">The Nerdwerd's Post</a> about Dungeon World Resources, as
+        well as the <a href="https://docs.google.com/spreadsheets/u/1/d/tT40-jw0aF56DcshZHxOm_g/htmlview"
+        target="_blank">Big List of Dungeon World Classes</a>, both of which are
+        unfortunately fairly consistently out of date.
+      </p>
+      <p>
+        My own first attempt was a <a href="https://www.reddit.com/r/DungeonWorld/comments/3ycr50/complete_list_of_dungeon_world_classes/"
+        target="_blank">Reddit Post</a> and contributing to the Wiki for
+        /r/DungeonWorld. The problem was that there was too much data for a
+        thread to parse, and the Table controls for the Wiki gave very limited
+        options. I could give the data to a user, but not necessarily present
+        it in any meaningful way. For instance, since the descriptions were so
+        long, it made the class names and authors completely squashed!
+      </p>
+      <p>
+        Next I tried to make a Google Spreadsheet, as with the original Big List
+        attempt. This, too, I dismissed, because there are no options for
+        sorting or filtering. Additionally, the number of comments and large
+        numbers of people viewing can also dramatically affect the performance
+        of the Google Speadsheet, which I didn't want. Finally, I decided screw
+        it and simply created this site.
+      </p>
+      <p>
+        I have constructed it entirely with HTML, CSS, and a touch of AngularJS.
+        There's a search function for filtering, individual sections can be
+        expanded or collapsed, and it's presented in a way that is readable. It
+        also has given me the freedom to add another section that I think is
+        important that the other methods did not necessarily allow for, which is
+        a walkthrough on Creating a Class.
+      </p>
+      <p>
+        I have attempted not to link any unintentional / unsanctioned releases
+        of paid work. If I've made an error, please do let me know. When possible,
+        I have tried to link the thread that announced the project for ease of
+        getting in touch with the author for any feedback.
+      </p>
+      <p>
+        Currently the PDFs and Docs are hosted where the creator uploaded them
+        - whether that's Dropbox or MediaFire or a purchase through
+        DriveThruRPG. This means that I do not have any control over whether a
+        link goes down. I am considering hosting the free copies myself, but
+        am uncertain about whether that's a good idea, since it involves the
+        creators having to get in touch with <i>me</i> when they want something
+        removed - an idea that I am against.
+      </p>
+      <p>
+        This list does not currently contain any Compendium Classes, nor
+        anything that was exclusively posted to the Something Awful Forums.
+      </p>
+      <p>
+        I have tried to group things together in a reasonable way while trying
+        too to keep the groups from becoming too sprawling. The Magic classes
+        in general are broken up in fairly arbitrary ways. I obviously have not
+        read every single playbook, so if something is better suited to a
+        different location, please do let me know.
+      </p>
+      </div>
+    </section>
+
+    <section id="contact" ng-show="focus === 'contact'">
+      <div class="form">
+        <iframe src="https://docs.google.com/forms/d/1RliG_455nhKmB0SIa5fixEXLnqZLx_emboVhcNjEn4c/viewform?embedded=true" width="760" height="700" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+      </div>
+    </section>
+
+    <section id="resources" ng-show="focus === 'resources'">
+      <div class="section-category">Resources</div>
+      <div class="section-subcategory">Sites / Communities</div>
+      <div class="content">
+        <a href="http://www.dungeon-world.com" target="_blank">Official Site</a>
+        <a href="http://www.dungeonworldsrd.com" target="_blank">Dungeon World SRD</a>
+        <a href="https://www.reddit.com/r/DungeonWorld" target="_blank">/r/DungeonWorld on Reddit</a>
+        <a href="https://plus.google.com/communities/100084733231320276299" target="_blank">Dungeon World Tavern on Google+</a>
+      </div>
+      <div class="section-subcategory">Other Resources</div>
+      <div class="content">
+        <a href="https://redboxvancouver.wordpress.com/2014/10/14/class-warfare-character-and-class-creation-for-dungeon-world/" target="_blank">Class Warfare</a>
+        <a href="" target="_blank">Dungeon World Guide</a>
+        <a href="http://www.drivethrurpg.com/product/156979/The-Perilous-Wilds" target="_blank">The Perilous Wilds</a>
+        <a href="http://codex.dungeon-world.com/" target="_blank">Monster Builder</a>
+      </div>
+      <div class="section-subcategory">Actual Plays</div>
+      <div class="content">
+        <a href="https://www.youtube.com/playlist?list=PL-oTJHKXHicRNYOc9unj3D1GMzjz_i6V2" target="_blank">RollPlay</a>
+        <a href="https://www.youtube.com/watch?v=Lo44CRPbWLU&list=PLSOKvcIdcJJevC-0LFZKQpHq3CsE5e-7K" target="_blank">Missclik's Meat Grinder</a>
+        <a href="https://www.youtube.com/watch?v=9UGme0TVMCE&list=PLTj75n3v9eTkH1UJuEwvtCk7ih2OW7zHw" target="_blank">Roll20: An Evening with Dungeon World</a>
+        <a href="http://kotnpodcast.blogspot.com/p/campaign-dungeon-world.html">Knights of the Night</a>
+      </div>
+    </section>
 
 
-
-  <section class="navigation">
-    <div ng-click="focus = 'class'">Classes</div>
-    <div ng-click="focus = 'new'">Creating a Class</div>
-    About
-  </section>
-
-  <section class="classes" ng-if="focus = 'class'">
-    <label>Search: <input ng-model="searchText"></label>
-    <br /><br />
-
-    <table ng-repeat="category in classData">
-      <thead>
-        <tr class="category" ng-click="category.expanded = !category.expanded">
-          <td colspan="5" ng-bind="category.name" ng-class="{true:'expanded', false:'collapsed'}[category.expanded]"></td>
-        </tr>
-      </thead>
-      <tbody ng-if="category.expanded" ng-repeat="subcategory in category.cats">
-        <tr class="subcategory" ng-click="subcategory.expanded = !subcategory.expanded">
-          <td colspan="5" ng-bind="subcategory.name" ng-class="{true:'expanded', false:'collapsed'}[subcategory.expanded]"></td>
-        </tr>
-        <tr ng-if="subcategory.expanded" ng-repeat="class in subcategory.classes | filter:searchText">
-          <td class="full">
-            <a ng-bind="class.name" ng-href="{{class.link}}" target="_blank"></a>
-          </td>
-          <td ng-bind="class.description"></td>
-          <td class="full">
-            <a ng-if="class.pack" ng-bind="class.pack" ng-href="{{class.packLink}}" target="_blank"></a>
-          </td>
-          <td class="full" ng-if="class.authorLink">
-            <a ng-bind="class.author" ng-href="{{class.authorLink}}" target="_blank"></a>
-          </td>
-          <td class="full" ng-if="!class.authorLink" ng-bind="class.author"></td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-
-
+    <section id="copyright">
+      Dungeon World is the work of <a href="http://www.dungeon-world.com" target="_blank">Sage LaTorra and Adam Koebel</a>.<br />
+      Any additional classes are the work of the listed author.<br />
+      Site designed and maintained by <a href="http://www.mpelletier.net">Michael Pelletier</a>.
+    </section>
 
 
     <script type="text/javascript" src="js/bootstrap.js"></script>
