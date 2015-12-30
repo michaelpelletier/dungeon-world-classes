@@ -1,3 +1,10 @@
+var DWClasses = DWClasses || {}
+
+DWClasses = angular.module('dwclasses', ['dwclasses.controllers', 'dwclasses.directives']);
+
+DWClasses.Controllers = angular.module('dwclasses.controllers', []);
+DWClasses.Directives = angular.module('dwclasses.directives', []);
+
 function MainController($scope, $http) {
   $scope.focus = 'class';
   $scope.classData = classData;
