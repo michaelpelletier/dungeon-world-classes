@@ -3,7 +3,7 @@ function MainController($scope, $http) {
   $scope.classData = classData;
   $scope.submitted = false;
 
-  $http.get('phones.json').success(function(data) {
+  $http.get('js/phones.json').success(function(data) {
    //$scope.phones = data;
    console.log(data)
   });
