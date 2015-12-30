@@ -30,6 +30,12 @@
       </section>
     </nav>
 
+    <section id="loading" ng-cloak>
+      <div class="loader-line-mask">
+        <div class="loader-line"></div>
+      </div>
+    </section>
+
     <section id="classes" ng-show="focus === 'class'" ng-cloak>
       <div class="search-section">
         <label>Search Classes: <input ng-model="searchText"></label>
@@ -204,7 +210,7 @@
       </div>
     </section>
 
-    <section id="copyright">
+    <section id="copyright" ng-cloak>
       Dungeon World is the work of <a href="http://www.dungeon-world.com" target="_blank">Sage LaTorra and Adam Koebel</a>.<br />
       Any additional classes are the work of the listed author.<br />
       Site designed and maintained by <a href="http://www.mpelletier.net">Michael Pelletier</a>.
