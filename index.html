@@ -35,13 +35,13 @@
         <label>Search Classes: <input ng-model="searchText"></label>
       </div>
 
-      <table ng-repeat="category in classData">
+      <table data-ng-with-model="baseClasses">
         <thead>
-          <tr class="category" ng-click="category.expanded = !category.expanded">
-            <td colspan="5" ng-bind="category.name" ng-class="{true:'expanded', false:'collapsed'}[category.expanded]"></td>
+          <tr class="category" ng-click="model.expanded = !model.expanded">
+            <td colspan="5" ng-bind="model.name" ng-class="{true:'expanded', false:'collapsed'}[model.expanded]"></td>
           </tr>
         </thead>
-        <tbody ng-if="category.expanded" ng-repeat="subcategory in category.cats">
+        <tbody ng-if="model.expanded" ng-repeat="subcategory in model.cats">
           <tr class="subcategory" ng-click="subcategory.expanded = !subcategory.expanded">
             <td colspan="5" ng-bind="subcategory.name" ng-class="{true:'expanded', false:'collapsed'}[subcategory.expanded]"></td>
           </tr>
@@ -66,6 +66,135 @@
           </tr>
         </tbody>
       </table>
+
+      <table data-ng-with-model="magicClasses">
+        <thead>
+          <tr class="category" ng-click="model.expanded = !model.expanded">
+            <td colspan="5" ng-bind="model.name" ng-class="{true:'expanded', false:'collapsed'}[model.expanded]"></td>
+          </tr>
+        </thead>
+        <tbody ng-if="model.expanded" ng-repeat="subcategory in model.cats">
+          <tr class="subcategory" ng-click="subcategory.expanded = !subcategory.expanded">
+            <td colspan="5" ng-bind="subcategory.name" ng-class="{true:'expanded', false:'collapsed'}[subcategory.expanded]"></td>
+          </tr>
+          <tr ng-if="subcategory.expanded" class="labels">
+            <td class="set-column">Class</td>
+            <td>Description</td>
+            <td class="set-column">Pack</td>
+            <td class="set-column">Author</td>
+          </tr>
+          <tr ng-if="subcategory.expanded" ng-repeat="class in subcategory.classes | filter:searchText">
+            <td class="set-column">
+              <a ng-bind="class.name" ng-href="{{class.link}}" target="_blank"></a>
+            </td>
+            <td ng-bind="class.description"></td>
+            <td class="set-column">
+              <a ng-if="class.pack" ng-bind="class.pack" ng-href="{{class.packLink}}" target="_blank"></a>
+            </td>
+            <td class="set-column" ng-if="class.authorLink">
+              <a ng-bind="class.author" ng-href="{{class.authorLink}}" target="_blank"></a>
+            </td>
+            <td class="full" ng-if="!class.authorLink" ng-bind="class.author"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table data-ng-with-model="settingClasses">
+        <thead>
+          <tr class="category" ng-click="model.expanded = !model.expanded">
+            <td colspan="5" ng-bind="model.name" ng-class="{true:'expanded', false:'collapsed'}[model.expanded]"></td>
+          </tr>
+        </thead>
+        <tbody ng-if="model.expanded" ng-repeat="subcategory in model.cats">
+          <tr class="subcategory" ng-click="subcategory.expanded = !subcategory.expanded">
+            <td colspan="5" ng-bind="subcategory.name" ng-class="{true:'expanded', false:'collapsed'}[subcategory.expanded]"></td>
+          </tr>
+          <tr ng-if="subcategory.expanded" class="labels">
+            <td class="set-column">Class</td>
+            <td>Description</td>
+            <td class="set-column">Pack</td>
+            <td class="set-column">Author</td>
+          </tr>
+          <tr ng-if="subcategory.expanded" ng-repeat="class in subcategory.classes | filter:searchText">
+            <td class="set-column">
+              <a ng-bind="class.name" ng-href="{{class.link}}" target="_blank"></a>
+            </td>
+            <td ng-bind="class.description"></td>
+            <td class="set-column">
+              <a ng-if="class.pack" ng-bind="class.pack" ng-href="{{class.packLink}}" target="_blank"></a>
+            </td>
+            <td class="set-column" ng-if="class.authorLink">
+              <a ng-bind="class.author" ng-href="{{class.authorLink}}" target="_blank"></a>
+            </td>
+            <td class="full" ng-if="!class.authorLink" ng-bind="class.author"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table data-ng-with-model="raceClasses">
+        <thead>
+          <tr class="category" ng-click="model.expanded = !model.expanded">
+            <td colspan="5" ng-bind="model.name" ng-class="{true:'expanded', false:'collapsed'}[model.expanded]"></td>
+          </tr>
+        </thead>
+        <tbody ng-if="model.expanded" ng-repeat="subcategory in model.cats">
+          <tr class="subcategory" ng-click="subcategory.expanded = !subcategory.expanded">
+            <td colspan="5" ng-bind="subcategory.name" ng-class="{true:'expanded', false:'collapsed'}[subcategory.expanded]"></td>
+          </tr>
+          <tr ng-if="subcategory.expanded" class="labels">
+            <td class="set-column">Class</td>
+            <td>Description</td>
+            <td class="set-column">Pack</td>
+            <td class="set-column">Author</td>
+          </tr>
+          <tr ng-if="subcategory.expanded" ng-repeat="class in subcategory.classes | filter:searchText">
+            <td class="set-column">
+              <a ng-bind="class.name" ng-href="{{class.link}}" target="_blank"></a>
+            </td>
+            <td ng-bind="class.description"></td>
+            <td class="set-column">
+              <a ng-if="class.pack" ng-bind="class.pack" ng-href="{{class.packLink}}" target="_blank"></a>
+            </td>
+            <td class="set-column" ng-if="class.authorLink">
+              <a ng-bind="class.author" ng-href="{{class.authorLink}}" target="_blank"></a>
+            </td>
+            <td class="full" ng-if="!class.authorLink" ng-bind="class.author"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table data-ng-with-model="undeadClasses">
+        <thead>
+          <tr class="category" ng-click="model.expanded = !model.expanded">
+            <td colspan="5" ng-bind="model.name" ng-class="{true:'expanded', false:'collapsed'}[model.expanded]"></td>
+          </tr>
+        </thead>
+        <tbody ng-if="model.expanded" ng-repeat="subcategory in model.cats">
+          <tr class="subcategory" ng-click="subcategory.expanded = !subcategory.expanded">
+            <td colspan="5" ng-bind="subcategory.name" ng-class="{true:'expanded', false:'collapsed'}[subcategory.expanded]"></td>
+          </tr>
+          <tr ng-if="subcategory.expanded" class="labels">
+            <td class="set-column">Class</td>
+            <td>Description</td>
+            <td class="set-column">Pack</td>
+            <td class="set-column">Author</td>
+          </tr>
+          <tr ng-if="subcategory.expanded" ng-repeat="class in subcategory.classes | filter:searchText">
+            <td class="set-column">
+              <a ng-bind="class.name" ng-href="{{class.link}}" target="_blank"></a>
+            </td>
+            <td ng-bind="class.description"></td>
+            <td class="set-column">
+              <a ng-if="class.pack" ng-bind="class.pack" ng-href="{{class.packLink}}" target="_blank"></a>
+            </td>
+            <td class="set-column" ng-if="class.authorLink">
+              <a ng-bind="class.author" ng-href="{{class.authorLink}}" target="_blank"></a>
+            </td>
+            <td class="full" ng-if="!class.authorLink" ng-bind="class.author"></td>
+          </tr>
+        </tbody>
+      </table>
+
     </section>
 
     <section id="new" ng-show="focus === 'new'">
