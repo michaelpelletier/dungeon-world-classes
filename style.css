@@ -198,9 +198,9 @@ li label {
 
 nav {
   background-color: #222;
-  padding: 10px 0;
+  padding: 10px 20px;
   position: fixed;
-  width: 100%;
+  width: calc(100% - 40px);
   z-index: 1;
 }
 
@@ -209,6 +209,7 @@ nav div {
 }
 
 nav section {
+  max-width: 1000px;
   padding-top: 0;
 }
 
@@ -315,19 +316,28 @@ div.cells:nth-child(odd) {
 }
 
 .set-column {
+  text-align: center;
   width: 10%;
 }
 
 @media (max-width: 768px) {
   div.labels,
-  div.cells,
-  div.cells div {
+  div.cells {
     display: block;
     width: 100%;
   }
 
+  div.cells div {
+    display: block;
+    width: calc(100% - 20px);
+  }
+
   div.cells div.empty {
     display: none;
+  }
+
+  .set-column {
+    text-align: left;
   }
 }
 
@@ -364,10 +374,16 @@ div.cells:nth-child(odd) {
 
 section {
   margin: 0 auto;
-  padding-top: 120px;
+  max-width: 700px;
+  padding-top: 172px;
   position: relative;
-  width: 90%;
 }
+
+section#classes {
+  max-width: 900px;
+  padding-top: 100px;
+}
+
 
 .content {
   background-color: #f7f7f7;
@@ -410,18 +426,15 @@ section {
   background-color: #ccc;
 }
 
-#resources .category,
-#about .category {
+.page .category {
   font-size: 16px;
 }
 
-
-#resources .category:hover,
-#about .category:hover {
+.page .category:hover {
   background-color: #73C482;
 }
 
-#resources .subcategory:hover {
+.page .subcategory:hover {
   background: #ddd;
 }
 
@@ -451,29 +464,8 @@ section {
         ABOUT PAGE
    ===================================== */
 
-.about-sidebar {
-  display: inline-block;
-  margin-right: 20px;
-  width: calc(100% - 470px);
-}
-
-.feedback {
-  display: inline-block;
-  vertical-align: top;
-  width: 445px;
-}
-
 .thanks {
   font-size: 16px;
   margin-top: 30px;
   text-align: : center;
-}
-
-@media (max-width: 1024px) {
-  .about-sidebar,
-  .feedback {
-    display: block;
-    margin-bottom: 50px;
-    width: 100%;
-  }
 }

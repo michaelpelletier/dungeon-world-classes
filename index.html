@@ -25,7 +25,7 @@
           <div class="button active" ng-click="focus = 'class'" ng-class="{active: focus === 'class'}">Classes</div>
           <div class="button" ng-click="focus = 'new'" ng-class="{active: focus === 'new'}">Class Guide</div>
           <div class="button" ng-click="focus = 'resources'" ng-class="{active: focus === 'resources'}">Resources</div>
-          <div class="button" ng-click="focus = 'about'" ng-class="{active: focus === 'about'}">About</div>
+          <div class="button" ng-click="focus = 'contact'" ng-class="{active: focus === 'contact'}">Contact</div>
         </div>
         <div id="hamburger" ng-click="mobile_menu = !mobile_menu">
           <div></div>
@@ -39,7 +39,7 @@
           <li class="button active" ng-click="focus = 'class'" ng-class="{active: focus === 'class'}">Classes</li>
           <li class="button" ng-click="focus = 'new'" ng-class="{active: focus === 'new'}">Class Guide</li>
           <li class="button" ng-click="focus = 'resources'" ng-class="{active: focus === 'resources'}">Resources</li>
-          <li class="button" ng-click="focus = 'about'" ng-class="{active: focus === 'about'}">About</li>
+          <li class="button" ng-click="focus = 'contact'" ng-class="{active: focus === 'contact'}">Contact</li>
         </ul>
       </div>
     </nav>
@@ -77,73 +77,135 @@
               <div class="set-column" ng-if="class.authorLink">
                 <a ng-bind="class.author" ng-href="{{class.authorLink}}" target="_blank"></a>
               </div>
-              <div class="full" ng-if="!class.authorLink" ng-bind="class.author"></div>
+              <div class="set-column" ng-if="!class.authorLink" ng-bind="class.author"></div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="new" ng-show="focus === 'new'" ng-cloak>
-      Creating a Class. http://daegames.blogspot.com/2014/09/dungeon-world-when-you-want-to-write.html
+    <section id="new" class="page" ng-show="focus === 'new'" ng-cloak>
+      <div class="category">Creating a Class</div>
+      <div class="subcategory">Intro</div>
+      <div class="content">Blah blah class warfare.</div>
+
+      <div class="category">When You Want to Write a Class...</div>
+      <div class="content">
+        <p><i>Written by David Guyll on 05 September, 2014. Reposted from <a href="http://daegames.blogspot.com/2014/09/dungeon-world-when-you-want-to-write.html" target="_blank">his blog</a> without permission.</i></p>
+        <p>
+          Melissa and I have a <a href="http://rpg.drivethrustuff.com/browse.php?cPath=18914_19277" target="_blank">fair share of Dungeon World classes</a>—or playbooks—under our belt, so in an effort to help other people see what goes into this kind of thing (and hopefully better make your own), I figured I'd write a post both detailing our creative process, as well as our own personal do's and dont's.
+        </p>
+        <p>
+          At the high-level view class creation can be summed up as a three step process: think of a concept, then think of a bunch of shit that it can do, and then build mechanics to properly convey them in the game. Note that this is not an absolute, scientific process: it's just what we (usually) do.
+        </p>
+      </div>
+      <div class="subcategory">Step 1: The Concept</div>
+      <div class="content">
+        <p>
+          First things first, it is <i>totally</i> okay to re-visit a class that's already been done, "official" or otherwise. Just because someone was the first to try their hand at something does not mean they did it "the best", or even particularly well at all.
+        </p>
+        <p>
+          I mean, right now I'm working on a new bard that I feel <a href="http://daegames.blogspot.com/2014/07/5th-edition-uninspired-bard.html" target="_blank">actually makes sense from a narrative/fiction perspective</a>, <a href="http://daegames.blogspot.com/2014/06/a-sundered-world-reworking-wizard.html" target="_blank">I've already made a new wizard for Sundered World</a>, and plan on doing a fighter that is more about fighting styles than just having a nifty weapon.
+        </p>
+        <p>
+          I've seen a number of pretty poor quality classes, but even <i>if</i> the class <i>is</i> done well chances are it's not going to line up with what <i>you</i> want, especially if it's for a fairly generic concept like a warrior or wizard type.
+        </p>
+        <p>
+          On the subject of concepts, something else to consider is that while a lot of classes assume you're playing a living, breathing humanoid—like a human, elf, dwarf, etc—that doesn't <i>have</i> to be the case: we've written several <a href="http://rpg.drivethrustuff.com/product/129631/The-Ghoul--A-Dungeon-World-Playbook" target="_blank">undead</a> <a href="http://rpg.drivethrustuff.com/product/128974/The-Mummy--A-Dungeon-World-Playbook" target="_blank">classes</a>, as well as a fucking <i><a href="http://rpg.drivethrustuff.com/product/134097/The-Spider--A-Dungeon-World-Playbook" target="_blank">giant spider</a></i>. Of course this is not to say that any old monster is going to work (I haven't found one, yet, but I'm sure they are out there), and some (like <i><a href="http://rpg.drivethrustuff.com/product/127148/The-Skeleton-A-Dungeon-World-Playbook" target="_blank">The Skeleton</a></i>) will take more...creative liberties than others.
+        </p>
+        <p>
+          <i>Example:</i> For this article I'm just going to go through how we handled <i><a href="http://rpg.drivethrustuff.com/product/132299/The-Witch--A-Dungeon-World-Playbook" target="_blank">The Witch</a></i> as best I can remember it, which is to say not particularly well, but it's more conventional and recent than <i>The Spider</i>.
+        </p>
+      </div>
+      <div class="subcategory">Step 2: Brainstorming</div>
+      <div class="content">
+        <p>Once you have an idea, just <b>start brainstorming shit that you think it can do and write it all down.</b></p>
+        <p><i>All of it.</i></p>
+        <p>Yes, even the stuff that you might not be sure what the fuck to do with. Actually, while you're at it try not to think of them in terms of rules, mechanics, or even really "balance" at this point: you'll get to that next. For now, just imagine what sort of shit it can do <i>purely</i> from a story perspective; think "it's flesh can harden into steel" without appending "you gain +1 armor". Yet, anyway.</p>
+        <p>The absolute minimum a class could get away with is 24 moves: 1 race move (barbarian), 3 starting moves (fighter), and 20 advanced moves (10 2-5's, and 10 6-10's). I say the more the merrier/it's better to be safe than sorry; since you will probably end up dropping, merging, and/or changing some, I think a safe minimum is 30 move ideas.</p>
+        <p>If your concept is based on a common archetype or monster, then do some research: you might be surprised what you discover, like that mythological ghouls are actually shapeshifting demons that can turn into animals, and also assume the appearance of the most recent person they ate. This gave me a whole new angle (two, really) to work with when I wrote <a href="http://rpg.drivethrustuff.com/product/129631/The-Ghoul--A-Dungeon-World-Playbook" target="_blank">The Ghoul</a>.</p>
+        <p><i>Example:</i> For <i>The Witch</i>, Melissa started out by <a href="http://en.wikipedia.org/wiki/Witchcraft" target="_blank">mining Wikipedia</a> and a handful of other (often unintentionally hilarious) sites for as much information as she could dig up—including various cultural depictions and abilities of witches—to figure out the sort of stuff that they were purportedly able to do: curse people (hex/evil eye), knowledge of plants, mess with the weather, use divination (which included chopping things up and scoping out the entrails), brew potions, make amulets, speak to the dead, change their shape, and so on.</p>
+        <p>In the end she had way more than 30 moves, which was good because some did indeed end up getting dropped (like one that added +1 armor and a few that let hex do some <i>very</i> specific things), or merged with others (like one that let you craft amulets).</p>
+        <p>If you run into a wall there are a couple of things you could try:</p>
+        <ul>
+          <li>The first thing I'd do is show others what you've got going on so far; they might be able to suggest some more stuff, or give you some ideas on how you can tweak or chop other moves apart. Of course, they also might point out why some moves suck, leaving you "worse off" than you were before.</li>
+          <li>Do <i>more</i> research: maybe you missed something, or an idea that you didn't think you'd use or need might fill in the gap.</li>
+          <li>Consider expanding your concept. This might open up a whole new swath of ideas to incorporate and explore.</li>
+          <li>Look at moves that you can split into two or more other moves.</li>
+          <li>If all else fails, you can fallback to one or two multiclass moves to help round it out.</li>
+        </ul>
+        <p>Keep in mind that <b>not all concepts are necessarily going to work</b>, though you might be surprised (again, giant spider). But, if after everything else you can't think of <i>at least 25</i> things for it to do, then it's a good sign it's just not strong enough. Even so, if you end up with a good deal of content you could try building a compendium class or two out of your material.</p>
+      </div>
+      <div class="subcategory">Step 3: Make Your Move(s)</div>
+      <div class="content">
+        <p>Now that you've got around 30, but preferably <i>many</i> more move ideas cooked up, here comes the <i>hard</i> part: dressing them up with mechanics. It might sound cliche, but this is really more of an art than a science (otherwise making classes would be easy <i>and</i> they'd all be <i>awesome</i>). Content-wise, the <b>typical number of moves by category is:</b></p>
+        <ul>
+          <li>2-3 race moves (3 seems to be the standard)</li>
+          <li>3-5 starting moves</li>
+          <li>20 advanced moves (though I've seen some have 19, and written at least one with 21)</li>
+        </ul>
+        <p>Before you get started there're <b>some things you should keep in mind:</b></p>
+        <ul>
+          <li>A move that <b>gives you +1 when trying to do something</b> is <i>perfectly acceptable</i>. Some people might tell you that they're objectively boring, and they're <i>wrong</i>. That being said it doesn't mean that they're necessarily the <i>best</i> way to convey whatever it is you're trying to do, which I'll get to in a bit.</li>
+          <li><b>Multiclassing moves are also perfectly fine</b> as long as you don't have anything more interesting to add to the mix. The default version of the move lets you pick another move from any other class as if you were one level lower, but you can restrict it to one or more classes or even a kind of theme (like a move related to fighting). For example the druid has a pair of moves—Hunter's Brother and Stalker's Sister—that let you choose something from the ranger's list.</li>
+          <i><b>Not all moves require a roll</b>. If your class is <i>always</i> supposed to be able to do something with a set return or effect, then likewise it should not have to make a roll: the Paladin's Human move lets her always know what is evil in an area, while the Thief's Shoot First advanced move prevents her from being ambushed. Just be careful about creating certain kinds of fictional absolutes.</i>
+        </ul>
+        <p>So with that all out of the way, let's start with, well, starting moves.</p>
+        <p><b>You're going to want 3-5 of them</b>, and whatever your concept is <b>it should be fully realized with just the starting moves</b>. Say you're working on a spellsword, a kind of fighter/wizard combination; it should be able to fight and cast spells competently enough without having to hit 2nd-level and pick the "right" advanced move.</p>
+        <p>Almost every <b>starting move is it's own block of rules</b> (which usually makes them individually harder to write), though some can <b>improve and/or modify an existing move</b>.</p>
+        <p>Think about the fiction you've written for your concept, and check out other classes (maybe even talk to other people) to best determine <b>how it gets triggered</b> (does the player need to declare it, or does something else trigger it, like an action or a condition), how you <b>determine what the move does or can do</b> (no roll, preset result, roll, hold and spend, make choices, etc), and finally <b>what the move actually does</b>.</p>
+        <p>Try not to fret about "balance" too much (though avoid making a class that can do everything another class can do and <i>then</i> some), instead relying on the fiction you've developed beforehand. This is, for example, why our mummy cannot die: fiction, yo.</p>
+        <p><i>Example:</i> We knew the witch <i>had</i> to be able to curse people. I mean, that's just the standard witch-y thing to do. But, other common skills and abilities were cooking up potions, fortune-telling/divination, knowing a lot about plants (goes with the potion thing), crafting amulets, mucking up the weather, having familiars, flying brooms, and weaving other nasty forms of magic.</p>
+        <p>That's <i>nine</i> things right there: in the end we kept hex, plant-lore, and divination as their own thing, merged potion brewing, crafting amulets, miscellaneous magic, and even arguably weather effects into thaumaturgy (similar to the wizard's Ritual Magic), familiars became an advanced move (since not all witches have them), and flying brooms became a magic item.</p>
+        <p>This left us with four solid starting moves that we felt were absolutely core to the class's identity: <b>Hex, Divination, Apothecary, and Thaumaturgy</b>:</p>
+        <ul>
+          <li><b>Hex</b> is pretty flexible: you just impose a curse on someone until the sun rises. You still have to roll, though, with a 7-9 forcing you to choose how it can end sooner. This is because in the fiction curses are not always going to work as expected, and often there are ways to end them.</li>
+          <li><b>Divination</b> has you ask the GM a question and then roll. If you get a 7+ you get an answer, and if you get a 10+ you can ask a followup question. Like cursing people, fortune-telling is not always going to tell you everything you want (sometimes the future is murky and unclear).</li>
+          <li><b>Apothecary</b> requires no roll: if you have the time and materials you can just make a variety of healing items. We originally considered requiring a check to determine how many things you could make, but since the thief lets you whip up poisons figured we'd waive the roll and just have you pick what and how many.</li>
+          <li><b>Thaumaturgy</b> has you tell the GM what you want to do, and the GM tells you what you have to do to make it work. Also no roll on this one, as we were basing it in part on the wizard's Ritual Magic move.</li>
+        </ul>
+        <p>Once you got the starting moves out of the way, <b>advanced moves</b> are next. Well...not exactly, and not always. Sometimes you'll get a few starting moves done and then start working on advanced moves, and sometimes you'll shuffle starting and advanced moves about (this has happened with the bard already). Sometimes you'll do this several times, plus inventing new ones and ditching others. Did I mention this isn't a science, yet?</p>
+        <p>At any rate, while most are not going to be as complex as the basic or starting moves, they're probably going to take even <i>longer</i> to write and fine-tune just because you're making more of them. Like starting moves, advanced moves either <b>improve and/or modify an existing move</b> (whether a basic or starting move unique to the class), or <b>give you something else to do</b> (usually something related but not essential to the class's core concept).</p>
+        <p><b>Improving/being more reliable with an existing move</b> can mean taking +1 when doing something specific, after doing something else, or if you meet other criteria, but as I mentioned above this may not be the best way to convey what you're actually trying to do. Yeah, taking +1 means that your overall odds improve, but you can still miss <i>and</i> can't do anything else with the move.</p>
+        <p>Here are some other ways you can emphasize that a class is better/more reliable at doing something:</p>
+        <ul>
+          <li>Remove the roll. You either no longer need to roll when making a move, or you automatically get a preset result, like how the ranger's Elf move has you get a 10+ every time you are the trailblazer. As with no-roll moves, be careful about creating certain kinds of fictional absolutes, like "you never let go of something unless you want to".</li>
+          <li>You <i>never</i> miss. When trying to do something, a miss counts as a 7-9. Your odds of getting a 10+ are the same, but you aren't guaranteed to get the best possible outcome. Having a 9- count as a 10+ is basically the same thing as removing the roll, unless there is some kind of 12+ benefit to be had.</li>
+          <li>Hold or make choices, even on a miss. Defend and Discern Realities don't let you hold anything or ask any questions on a miss, but maybe even on a miss you can still get something out of it (see the paladin's Staunch Defender or the thief's Cautious). This can get rolled into...</li>
+          <li>Hold more or make more decisions. Staunch Defender and Cautious not only let you hold 1 on a miss, they let you hold +1. I've also seen moves that let you hold more than usual on a 12+. On that note...</li>
+          <li>On a 12+... The thief's Evasion kicks up defy danger a notch when you get a 12+. You not only avoid whatever the problem is, you <i>transcend</i> it. You could use this with hold/choice moves to boost what they do, too.</li>
+        </ul>
+        <p><i>Example:</i> Aurpsicina allows a witch to take +1 forward when using the starting move Divination, so long as you study the entrails of a recently slain creature. Blood Magic both lets you take +1 forward when using magic against a creature if you have their blood on hand, as well as make it easier to use Thaumaturgy if you wound yourself.</p>
+        <p><b>Modifying an existing move</b> lets you use an existing move (whether a basic or starting move) in a new way, makes it do something else, or makes it do something else when you get a certain result. This is can be used in combination with <b>improving an existing move</b>. The bard's A Little Help From My Friends lets you take +1 forward after successfully aiding someone, Duelist's Parry has you take +1 armor forward after using Hack & Slash, and Bamboozle lets you take +1 forward when you parley and get a 7+.</p>
+        <p><i>Example:</i> Formsculpting Hex lets a witch use Hex to turn someone into an animal, while Moment of Foresight lets a witch use discern realities to ask any question you want if you roll a 10+. A few of the other moves let her heal someone after making camp.</p>
+        <p><b>Giving you something entirely new to do</b> is giving the class yet another move, similar to most starting moves (which might require a roll, or might just be automatic): the bard's Reputation, the ranger's Wild Empathy, and the thief's Escape Route are just a handful of examples of this.</p>
+        <p><i>Example:</i> Weather-Worker let's a witch stir up a storm in just a few minutes. You hold storm, which you can spend to deal damage, negate ranged attacks, or hinder an enemy (spending storm represents it running out). Skinchanger lets you change your shape into an animal (and is required for Formsculpting Hex and has no roll). Necromancy lets you talk to the spirits of the dead and ask them questions.</p>
+        <p>I tend to do the <b>race moves</b> last, because often I have them work with a starting move or give you immediate access to an advanced move. Plus, when I am thinking of a concept race rarely enters the equation. Actually, I haven't used race in my classes because I dislike the idea of classes limiting what races can choose them.</p>
+        <p>I get why this is a thing: the game is deliberately trying to model "old-school" <i>Dungeons & Dragons</i>, back when classes often restricted races in some way. I also think it's a pointless, antiquated mechanic, and honestly for a lot of concepts it just won't work (a lot of people just create alternate race moves, anyway).</p>
+        <p>Instead, I opt for <b>backgrounds</b>. They're mechanically identical to races (they give you a move or modify another one), but instead of thinking of 2-3 races that arbitrarily fit the class, just think of 2-3 ways for you to get <i>into</i> the class or tweak the concept a bit.</p>
+        <p><i>Example:</i> As a witch you could learn your magic by being a member of a <b>coven</b> (and go to them for aid or support), make a <b>deal with the devil</b> (which starts you off with the familiar move), or be <b>taught by another witch</b> one on one (which makes you better at identifying potions and plants).</p>
+      </div>
+      <div class="subcategory">Step 4: The East Part(s)</div>
+      <div class="content">
+        <p>You'll probably get all of this done (or at least part of it) during the course of developing the rest of the class, but if not no biggie: it's really easy.</p>
+        <p>For <b>the look</b> I just envision three different appearances and chop them apart, sometimes changing one if something more interesting or compelling pops into my head (usually this happens while designing the moves).</p>
+        <p><b>Stats</b> are even easier: find the closest class combat wise and go with it. You generally can't go wrong, here. The <b>base hit points</b> and <b>damage die</b> don't need to match up, either.</p>
+        <p><b>Alignments</b> can be a bit trickier. I've seen some people try and replace this with Drives, but after hearing the explanation as to why it became apparent that it's entirely based on someone's <i>very</i> narrow interpretation of what Alignment <i>can</i> mean, so I just don't roll that way.</p>
+        <p>Just think of three general personalities or things that the class will often want to do, like free others from bondage, protect someone from harm, or forge a magic item, incite chaos, and then attach an alignment that best matches it.<p>
+        <p><i>Example:</i> We figured that witches could be a kind and helpful (a white witch), cruel and wicked, or more..."playful", which resulted in Good, Evil, and Chaotic respectively.</p>
+      </div>
+      <div class="subcategory">Step 5+: Rinse, Refine, and Repeat</div>
+      <div class="content">
+        <p>Once you think you're done...you probably aren't.</p>
+        <p><i>Especially</i> if you are planning to try and charge money for your work, show your class to at least a handful of people and <i>listen</i> to what they have to say. They may not be right, but be prepared to admit when they are, even if it means taking a hefty portion of it back to the drawing board. Having someone who thinks differently than you do might not only improve the class, but might give you an entirely new way of thinking and approaching their design (someone else pitched the idea of the unkillable mummy).</p>
+        <p>Also, if possible run it through at least a few sessions to see how it works in <i>actual</i> play, as that's a better barometer for determining what does and doesn't work. It might also give you ideas for other moves.</p>
+        <p>Keep doing this until no one has any real/major complaints, at which point it's <i>probably</i> decent.</p>
+      </div>
     </section>
 
-    <section id="about" ng-show="focus === 'about'" ng-cloak>
-      <div class="about-sidebar">
-        <div class="category">About</div>
-        <div class="content">
-          <p>
-            The intent of this site is to be a resource for finding third party
-            classes for Dungeon World. It was inspired by <a
-            href="http://nerdwerds.blogspot.com/2013/04/dungeon-world-resources.html"
-            target="_blank">The Nerdwerd's Post</a> about Dungeon World Resources,
-            as well as the <a href="https://docs.google.com/spreadsheets/u/1/d/tT40-jw0aF56DcshZHxOm_g/htmlview"
-            target="_blank">Big List of Dungeon World Classes</a>, both of which
-            are unfortunately fairly consistently out of date.
-          </p>
-          <p>
-            I initially tried to make a <a href="https://www.reddit.com/r/DungeonWorld/comments/3ycr50/complete_list_of_dungeon_world_classes/"
-            target="_blank">Reddit Post</a> and contribute to the Wiki but the
-            amount of data made it unpractical with the limited tools available.
-            It also offered nothing along the lines of searching, collapsing
-            sections, etc.
-          </p>
-          <p>
-            This site also allows the freedom of creating a section that the other
-            formats did not allow for, which is a walkthrough on Creating a Class.
-            I consider this an incredibly important addition.
-          </p>
-          <p>
-            I have attempted not to link any unintentional / unsanctioned releases
-            of paid work. If I've made an error, please do let me know. When possible,
-            I have tried to link the thread that announced the project for ease of
-            getting in touch with the author for any feedback.
-          </p>
-          <p>
-            Currently the PDFs and Docs are hosted where the creator uploaded them
-            - whether that's Dropbox or MediaFire or a purchase through
-            DriveThruRPG. This means that I do not have any control over whether a
-            link goes down. I am considering hosting the free copies myself, but
-            am uncertain about whether that's a good idea, since it involves the
-            creators having to get in touch with <i>me</i> when they want something
-            removed - an idea that I am against.
-          </p>
-          <p>
-            This list does not currently contain any Compendium Classes, nor
-            anything that was exclusively posted to the Something Awful Forums.
-          </p>
-          <p>
-            I have tried to group things together in a reasonable way while trying
-            too to keep the groups from becoming too sprawling. The Magic classes
-            in general are broken up in fairly arbitrary ways. I obviously have not
-            read every single playbook, so if something is better suited to a
-            different location, please do let me know.
-          </p>
-        </div>
-      </div>
-
-      <div class="feedback">
-        <div class="category">Feedback / Contact</div>
+    <section id="contact" class="page" ng-show="focus === 'contact'" ng-cloak>
+        <div class="category">Contact</div>
+        <div class="subcategory">Feedback</div>
         <div class="content">
           If you would like to leave Feedback of any kind, please use the form below. I can also be found on Reddit as <a href="https://www.reddit.com/user/mpelletier/" target="_blank">/u/mpelletier</a> or via my personal site at <a href="http://www.mpelletier.net" target="_blank">mpelletier.net</a>.
 
@@ -192,10 +254,59 @@
             </form>
           </div>
         </div>
+        <div class="subcategory">About</div>
+        <div class="content">
+          <p>
+            The intent of this site is to be a resource for finding third party
+            classes for Dungeon World. It was inspired by <a
+            href="http://nerdwerds.blogspot.com/2013/04/dungeon-world-resources.html"
+            target="_blank">The Nerdwerd's Post</a> about Dungeon World Resources,
+            as well as the <a href="https://docs.google.com/spreadsheets/u/1/d/tT40-jw0aF56DcshZHxOm_g/htmlview"
+            target="_blank">Big List of Dungeon World Classes</a>, both of which
+            are unfortunately fairly consistently out of date.
+          </p>
+          <p>
+            I initially tried to make a <a href="https://www.reddit.com/r/DungeonWorld/comments/3ycr50/complete_list_of_dungeon_world_classes/"
+            target="_blank">Reddit Post</a> and contribute to the Wiki but the
+            amount of data made it unpractical with the limited tools available.
+            It also offered nothing along the lines of searching, collapsing
+            sections, etc.
+          </p>
+          <p>
+            This site also allows the freedom of creating a section that the other
+            formats did not allow for, which is a walkthrough on Creating a Class.
+            I consider this an incredibly important addition.
+          </p>
+          <p>
+            I have attempted not to link any unintentional / unsanctioned releases
+            of paid work. If I've made an error, please do let me know. When possible,
+            I have tried to link the thread that announced the project for ease of
+            getting in touch with the author for any feedback.
+          </p>
+          <p>
+            Currently the PDFs and Docs are hosted where the creator uploaded them
+            - whether that's Dropbox or MediaFire or a purchase through
+            DriveThruRPG. This means that I do not have any control over whether a
+            link goes down. I am considering hosting the free copies myself, but
+            am uncertain about whether that's a good idea, since it involves the
+            creators having to get in touch with <i>me</i> when they want something
+            removed - an idea that I am against.
+          </p>
+          <p>
+            This list does not currently contain any Compendium Classes, nor
+            anything that was exclusively posted to the Something Awful Forums.
+          </p>
+          <p>
+            I have tried to group things together in a reasonable way while trying
+            too to keep the groups from becoming too sprawling. The Magic classes
+            in general are broken up in fairly arbitrary ways. I obviously have not
+            read every single playbook, so if something is better suited to a
+            different location, please do let me know.
+          </p>
       </div>
     </section>
 
-    <section id="resources" ng-show="focus === 'resources'" ng-cloak>
+    <section id="resources" class="page" ng-show="focus === 'resources'" ng-cloak>
       <div class="category">Resources</div>
       <div class="subcategory">Sites / Communities</div>
       <div class="content">
