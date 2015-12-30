@@ -22,7 +22,7 @@ body {
 a, a:active, a:visited {
   color: #73C482;
   cursor: pointer;
-  font-family: "Montserrat";
+  font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-weight: normal;
   position: relative;
   text-decoration: none;
@@ -33,6 +33,101 @@ a:hover {
   text-decoration: underline;
 }
 
+/* =====================================
+        FORM FIELDS
+   ===================================== */
+
+input {
+  background-color: #f6f6f6;
+  border: 1px solid #ebebeb;
+  font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-style: italic;
+  height: 30px;
+  padding: 0 10px;
+}
+
+textarea {
+  border: 1px solid #ebebeb;
+  font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  resize: vertical;
+  width: 100%;
+}
+
+input:focus,
+textarea:focus {
+  outline: 0;
+  box-shadow: 0 0 5px #73C482;
+  border: 1px solid #73C482;
+}
+
+input[type="submit"] {
+  font-style: normal;
+  height: 50px;
+  margin-top: 5px;
+}
+
+/* Labels and Lists for the Comments Form */
+label {
+  display: inline-block;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+label div {
+  font-weight: normal;
+  font-style: italic;
+}
+
+
+ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+li input {
+  height: auto;
+}
+
+li label {
+  font-weight: normal;
+  margin-top: 0;
+}
+
+/* Nav and Submit Buttons */
+
+.button {
+  border-radius: 3px;
+  color: #FFF;
+  cursor: pointer;
+  font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  line-height: 20px;
+  padding: 15px;
+  text-transform: uppercase;
+}
+
+.button:hover {
+  color: #73C482
+}
+
+.button.active {
+  background-color: #73C482;
+  color: #FFF;
+}
+
+.button.active:hover {
+  background-color: #4E8758;
+  color: #FFF;
+}
+
 
 /* =====================================
         MAIN NAV
@@ -40,9 +135,14 @@ a:hover {
 
 #logo {
   color: #73C482;
+  display: inline-block;
   font-family: 'Metal Mania', "Helvetica Neue", Helvetica, Arial, cursive;
   font-size: 21px;
-  padding: 15px 0;
+  padding: 10px 0;
+}
+
+#logo:hover {
+  text-decoration: none;
 }
 
 nav {
@@ -50,6 +150,7 @@ nav {
   padding: 10px 0;
   position: fixed;
   width: 100%;
+  z-index: 1;
 }
 
 nav div {
@@ -64,31 +165,6 @@ nav section {
   float: right;
 }
 
-#nav-links div {
-  border-radius: 3px;
-  color: #FFF;
-  cursor: pointer;
-  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 14px;
-  letter-spacing: 1px;
-  line-height: 20px;
-  padding: 15px;
-  text-transform: uppercase;
-}
-
-#nav-links div:hover {
-  color: #73C482
-}
-
-#nav-links div.active {
-  background-color: #73C482;
-  color: #FFF;
-}
-
-#nav-links div.active:hover {
-  background-color: #4E8758;
-  color: #FFF;
-}
 
 /* =====================================
         CLASSES TABLE
@@ -138,9 +214,13 @@ td {
   background: #ccc;
 }
 
+.labels {
+  font-weight: bold;
+}
+
 /* Icons */
 .expanded, .collapsed {
-  background-position: center right;
+  background-position: center right 5px;
   background-repeat: no-repeat;
   cursor: pointer;
   padding-right: 30px;
@@ -152,6 +232,12 @@ td {
 
 .collapsed {
   background-image: url('images/expand_arrow.png');
+}
+
+/* Search */
+.search-section {
+  margin-bottom: 20px;
+  text-align: right;
 }
 
 
@@ -205,7 +291,7 @@ section {
 }
 
 /* =====================================
-        INDIVIDUAL PAGE TWEAKS
+        RESOURCES PAGE
    ===================================== */
 
 #resources a {
@@ -216,6 +302,24 @@ section {
     margin: 0px 20px;
 }
 
-.form {
-  text-align: center;
+/* =====================================
+        ABOUT PAGE
+   ===================================== */
+
+.about-sidebar {
+  display: inline-block;
+  margin-right: 20px;
+  width: calc(100% - 470px);
+}
+
+.feedback {
+  display: inline-block;
+  vertical-align: top;
+  width: 445px;
+}
+
+.thanks {
+  font-size: 16px;
+  margin-top: 30px;
+  text-align: : center;
 }

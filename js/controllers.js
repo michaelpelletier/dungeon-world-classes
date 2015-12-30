@@ -1,6 +1,13 @@
-function MainController($scope) {
+function MainController($scope, $http) {
   $scope.focus = 'class';
   $scope.classData = classData;
+  $scope.submitted = false;
+
+  $http.get('phones.json').success(function(data) {
+   //$scope.phones = data;
+   console.log(data)
+  });
+
 
 };
 
@@ -76,7 +83,8 @@ var classData = [
           {
               "name": "The Mountebank",
               "description": "\"It is easier to fool people than to convince them that they have been fooled.\" - Mark Twain. Everyone wants to believe something, and you capitalize on that. Subterfuge and persuasion are your weapons of choice. You have spent hours honing your skills of deception and suggestion, deftly mixing aptitude and confidence to achieve your goals. Welcome to TakeOnRules.com fourth published supplement - \"The Mountebank\" is a stand alone core playbook for Dungeon World. Built around the concept of bluffs and feints, the mountebank excels in the social arena.",
-              "author": "Take On Rules"
+              "author": "Take On Rules",
+              "authorLink": "http://www.rpgnow.com/browse/pub/4854/TakeOnRules"
           },
           {
               "name": "The True Friend"
@@ -122,7 +130,8 @@ var classData = [
           {
               "name": "The Orc Medic",
               "description": "The doctor is in! Healing! Combat Drugs! Surgical Improvements! No matter what ails you, the orc medic is your \"friend\". And if you want to delve into the mysteries of \"modern\" \"medicine\" yourself, welcome! Orc Medicine is a rewarding profession that certainly allows a great degree of personal creativity. Maybe you were the talented healer of an orcish raiding tribe. Maybe you were educated in one of the most prestigious colleges of the realm. Or maybe you one day stumbled on ancient tomes filled with medical knowledge and taught it all to yourself.",
-              "author": "Imploding Dice"
+              "author": "Imploding Dice",
+              "authorLink": "http://drivethrurpg.com/browse/pub/8232/Imploding-Dice"
           },
           {
               "name": "The Priest",
@@ -134,7 +143,8 @@ var classData = [
           {
               "name": "The Tomb Warden",
               "description": "A lawful-good necromancer. A knight imbued with the power of restless ghosts. The Tomb Warden sees dead people and he is the only one who will speak up for them. Greedy hands plunder their riches and violate their resting places. Powerless they are forced to watch, incapable of taking vengeance, incapable of finding peace. Until you come along. Maybe you carry out the agenda of an ancient order. Maybe you were raised by the ghosts of the dead and consider them your family. Or maybe you were once dead yourself and came back as something different.",
-              "author": "Imploding Dice"
+              "author": "Imploding Dice",
+              "authorLink": "http://drivethrurpg.com/browse/pub/8232/Imploding-Dice"
           },
         ]
       },
@@ -167,7 +177,8 @@ var classData = [
               "name": "The Hunter",
               "description": "A variant on the Ranger that uses traps instead of an animal companion.",
               "pack": "Lore and Lords Pack",
-              "author": "Peter Johansen"
+              "author": "Peter Johansen",
+              "authorLink": "http://www.drivethrurpg.com/browse/pub/6532/Peter-Johansen"
           },
           {
               "name": "The Shifter",
@@ -210,7 +221,8 @@ var classData = [
           {
               "name": "The Barbarian",
               "description": "Civilization is a lie the weak hide behind. The world honors only strength, be it of blade or will. For you, there is anger, fury from behind your heart. Where you go, blood spills like water, and man and beast alike cower before you. In the world behind the walls, they measure worth not by might, but by metal discs. So be it. These ‘dungeons' offer a hunt worthy of you, worthy of your might. To live in the moment, to let red haze overtake you, to laugh at Death and call him friend; to do this is to truly live For you are The Barbarian! ",
-              "author": "Rite Publishing"
+              "author": "Rite Publishing",
+              "authorLink": "http://drivethrurpg.com/browse/pub/2373/Rite-Publishing"
           },
           {
               "name": "The Berserker"
@@ -221,7 +233,8 @@ var classData = [
           {
               "name": "The Brute",
               "description": "This isn't a subtle name. Subtlety is for pansies. You want to smash through walls, pick up goblins and use them as weapons (or hurl them off cliffs), all while laughing as puny mortals stick swords into you. Smash! Crush! Eat!",
-              "author": "Monstrous Lobsters Incorporated"
+              "author": "Monstrous Lobsters Incorporated",
+              "authorLink": "http://drivethrurpg.com/browse/pub/5833/Monstrous-Lobsters-Incorporated"
           },
           {
               "name": "The Demolisher"
@@ -248,7 +261,8 @@ var classData = [
           {
               "name": "The Master",
               "description": "The Master allows you to play as a truly peerless fighter, who knows the value of their power, and does not display it lightly! With the kind of skill you have, comes a responsibility for keeping it away from sight, either by using it only against only the worthiest of enemies, or by hiding it behind a mask of a harmless senior citiszen. You are the master/wise mentor character from many a movie, book, and anime. You might look harmless, and you might be acting like a drunkard or a fool, but you have mastered all the paths of kung-fu, or have become one with the sword, or have learned the inner truth, or your ally the force is! Whatever your power, the young punks trying to mess with you probably won't see even a glimpse of it... well, the really good ones among them might see just one.",
-              "author": "Shiinto"
+              "author": "Shiinto",
+              "authorLink": "http://www.drivethrurpg.com/browse/pub/8960/Shiinto"
           },
           {
               "name": "The Peerless Fighter",
@@ -302,7 +316,8 @@ var classData = [
               "name": "The Monk",
               "description": "Master of martial arts, acrobatics, and the mysterious force of ki.",
               "pack": "Lore and Lords Pack",
-              "author": "Peter Johansen"
+              "author": "Peter Johansen",
+              "authorLink": "http://www.drivethrurpg.com/browse/pub/6532/Peter-Johansen"
           },
           {
               "name": "The Monk",
@@ -426,7 +441,8 @@ var classData = [
               "name": "The Trickster",
               "description": "A variant on the thief that uses cunning and deceit instead of poisons and knives.",
               "pack": "Lore and Lords Pack",
-              "author": "Peter Johansen"
+              "author": "Peter Johansen",
+              "authorLink": "http://www.drivethrurpg.com/browse/pub/6532/Peter-Johansen"
           },
           {
               "name": "The Walker",
@@ -464,7 +480,8 @@ var classData = [
           {
               "name": "The Gallant",
               "description": "Yours is a special fate. In a world besieged by savage monsters and the limitless cruelty of the human heart, you were given a precious gift: the power to fight back. You are Justice, the wall between evil and those it would harm. So long as there is breath in your body, the forces of darkness shall not go unchallenged. You are Hope, the desire to better the world one step at a time. As long as your spirit toils upon this earth, you will work to make it a brighter place. Let your allies scoff at your beliefs and revel in their petty selfishness. Yours is a strength of conviction they will never know. Out in the world, you'll be outnumbered and outgunned. Yours is a thankless job, and an early grave is your most likely reward. But, you're not dead just yet, and you still have work to do. Raise your weapon. Maybe it all comes out right in the end. But it would take a miracle.",
-              "author": "Timothy Schroeder"
+              "author": "Timothy Schroeder",
+              "authorLink": "http://drivethrurpg.com/browse/pub/5554/Timothy-Schroeder"
           },
           {
               "name": "The Knight Errant",
@@ -552,7 +569,8 @@ var classData = [
         "classes": [
           {
               "name": "The Auramancers",
-              "author": "Mark Weiss"
+              "author": "Mark Weiss",
+              "authorLink": "https://plus.google.com/102532126904257134510"
           },
           {
               "name": "The Dreamcatcher",
@@ -636,7 +654,8 @@ var classData = [
           {
               "name": "The Witch Doctor",
               "description": "You are a Witch Doctor. You use your magic to help your allies, keep yourself safe using protective talismans called mojos, see if a course of action is a good idea, heal hurt creatures, work the roots to craft herbal medicine, use your voodoo to curse your enemies, or even control them with your zombi powder.",
-              "author": "Dwarfare Games"
+              "author": "Dwarfare Games",
+              "authorLink": "http://drivethrurpg.com/browse/pub/9017/Dwarfare-Games"
           },
         ]
       },
@@ -647,7 +666,8 @@ var classData = [
           {
               "name": "The Arcane Duelist",
               "description": "Battle is not a means to an end: It is an art. Where others see nothing but chaos and desperation, you refine an inner poetry of steel and fire that they cannot hope to comprehend, much less match. If you are lucky, you may find a rival able to match your skill. But even these brief connections can end only in victory defeat: The path you walk is ultimately lonely, but it is yours. The arcane duelist is a base name for the Dungeon World system. The arcane duelist weaves magic and martial skill together to form a style entirely his or her own. Acquire deadly new techniques, then combine them in new ways at a moment's inspiration to make the battlefield your canvas!",
-              "author": "Timothy Schreoder"
+              "author": "Timothy Schroeder",
+              "authorLink": "http://drivethrurpg.com/browse/pub/5554/Timothy-Schroeder"
           },
           {
               "name": "The Arcane Duelist"
@@ -688,7 +708,8 @@ var classData = [
           {
               "name": "The Summoner",
               "description": "Some things defy explanation. There exist other forces, maybe somewhere out there, maybe hiding within us. There are beings of vast and wondrous power and you, you alone have an edge over them. Draw out the circle, speak the incantations, and hope that the bindings hold. You have work to do, but you won't do it alone. The summoner is a new base name for the Dungeon World system. The summoner binds and controls fantastical creatures, designing individual summons from a list of over 20 traits.",
-              "author": "Timothy Schreoder"
+              "author": "Timothy Schroeder",
+              "authorLink": "http://drivethrurpg.com/browse/pub/5554/Timothy-Schroeder"
           },
         ]
       },
@@ -699,7 +720,8 @@ var classData = [
           {
               "name": "The Afflictionist",
               "description": "There are more dangers in Dungeon World than just in the dungeons alone. In the deep forgotten recesses of the cities; disease runs rampant killing men, women, and children alike. Treatment is all but impossible to come by, as those who try to assist only spread the infection further. That's where you come in. You, who are basically immune to disease, poison, and venom; your touch can draw illness from the stricken. You are a boon to the ever expanding communities throughout Dungeon World. You dare not keep all those toxins inside you though. You also have to ability to let loose those plagues upon others, which makes you an asset to the adventuring parties as well. So go forth you merchant of pox, spread your name as you spread your pestilence.",
-              "author": "Creepy Doll Studios"
+              "author": "Creepy Doll Studios",
+              "authorLink": "http://drivethrurpg.com/browse/pub/5810/Creepy-Doll-Studios"
           },
           {
               "name": "The Pagan",
@@ -809,7 +831,7 @@ var classData = [
           {
               "name": "The Elementalist",
               "description": "The Elementalist is a magician who specializes in controlling the elements. An alternative take on the wizard, instead of spells, the Elementalist has control over a set number of elements, and may command them in a set number of ways-both of which increase as they level up. ",
-              "pack": "Johnstone's Dungeon World Character namees",
+              "pack": "Johnstone's Dungeon World Character Classes",
               "author": "Red Box Vancouver",
               "authorLink": "http://www.drivethrurpg.com/browse/pub/4483/Red-Box-Vancouver",
           },
@@ -910,12 +932,14 @@ var classData = [
           {
               "name": "The Abjurer",
               "description": "A strong set of armor and a stout shield are not the only defenses against vicious monsters and vile magic. The Abjurer weaves spells of protection to shield himself and his allies from the horrible things that adventurers often find themselves facing. His enchantments can ward away evil creatures, banish demons, punish attackers and more.",
-              "author": "Mike Wice"
+              "author": "Mike Wice",
+              "authorLink": "http://drivethrurpg.com/browse/pub/7625/Mike-Wice"
           },
           {
               "name": "The Aeromancer",
               "description": "A Playbook and Character sheet for the Aeromancer name in Dungeonworld. Select you own preferred playstyle as you utilise this offensive support name to rain havoc upon your enemies while postering the oppertunities of you allies by invoking elemental air magics.",
-              "author": "Role Cast Die Productions"
+              "author": "Role Cast Die Productions",
+              "authorLink": "http://drivethrurpg.com/browse/pub/8233/Role-Cast-Die-Productions"
           },
           {
               "name": "The Allomancer"
@@ -926,12 +950,14 @@ var classData = [
           {
               "name": "The Hydromancer",
               "description": "A Playbook and Character sheet for the Hydromancer name in Dungeonworld. Select you own preferred playstyle as you utilise this highly varied support name. Bounce from healing to freezing to armour removal and damage as you blend the different states of water to stack effects with a greater emphasis on passive spellcasting making you a valuable team player",
-              "author": "Role Cast Die Productions"
+              "author": "Role Cast Die Productions",
+              "authorLink": "http://drivethrurpg.com/browse/pub/8233/Role-Cast-Die-Productions"
           },
           {
               "name": "The Illusionist",
               "description": "Sure, some wizards throw fireballs or lightning bolts or transform into dragons, but you work a more subtle craft. Why spend years trying to summon a demon when you can pretend one is there instead? Illusions let you do almost anything…as long as nobody else figures out what is going on, of course. The Illusionist is a new playbook for Dungeon World. Master of...well, illusions, you will play as a practitioner of the most cunning and devious of the magical schools. Confuse and deceive your foes with powerful illusions. Blast them with your Color Spray. Throw a magic show in town! The Illusionist is part wizard, part trickster, and inspired both by nameic D&D as well as stage magicians. Many of their moves revolve around deception, of course, but the deception can do a lot for you. You can protect yourself with mirror images, detonate your illusions on unexpecting foes, and even conjure a phantom bodyguard!",
-              "author": "Bryce Duzan"
+              "author": "Bryce Duzan",
+              "authorLink": "http://drivethrurpg.com/browse/pub/6507/Bryce-Duzan"
           },
           {
               "name": "The Lantern",
@@ -943,7 +969,8 @@ var classData = [
           {
               "name": "The Pyromancer",
               "description": "A Playbook and Character sheet for the Pyromancer name in Dungeonworld. Select you own preferred playstyle as you utilise hyper offensive magic to cause serious damage over time. Become one with fire as your mana and health mix together creating the battlefield beast that has sorely been missing from the Dungeon World play scheme. ",
-              "author": "Role Cast Die Productions"
+              "author": "Role Cast Die Productions",
+              "authorLink": "http://drivethrurpg.com/browse/pub/8233/Role-Cast-Die-Productions"
           },
           {
               "name": "The Shade",
@@ -1000,7 +1027,8 @@ var classData = [
           {
               "name": "The Swashbuckler",
               "pack": "The Histories, Volume 1",
-              "author": "Four Horsemen Publishing"
+              "author": "Four Horsemen Publishing",
+              "authorLink": "http://www.drivethrurpg.com/browse/pub/7457/Four-Horsemen-Publishing"
           },
         ]
       },
@@ -1011,7 +1039,8 @@ var classData = [
           {
               "name": "The Ninja",
               "description": "Have you ever wanted to pose as another person, only to reveal yourself at an opportune time? Shinobi, Monomi, Nokizaru. Hidden spies, assassins, and saboteurs. The Ninja gives you the opportunity to play a night-stalking master of disguise and subterfuge in Dungeon World, Anyone could be a ninja in disguise - the maid, a trusted bodyguard, even... you.",
-              "author": "Lee's Lists"
+              "author": "Lee's Lists",
+              "authorLink": "http://drivethrurpg.com/browse/pub/4843/Lees-Lists"
           },
           {
               "name": "The Ninja"
@@ -1023,7 +1052,8 @@ var classData = [
           {
               "name": "The Shinobi",
               "description": "\"Someone heard a noise?\" asked the guard to his companions. Too late, you thought. While your shadow clones kill the other guards, you put a kunai on the man's throat. \"Tell me where the scroll is and your death won't be painful.\" This playbook let you play a Shinobi, an oriental warrior trained in the magical arts on Ninjutsu.",
-              "author": "Duccio Mondanelli"
+              "author": "Duccio Mondanelli",
+              "authorLink": "http://drivethrurpg.com/browse/pub/6882/Duccio-Mondanelli"
           },
           {
               "name": "The Shinobi"
@@ -1045,7 +1075,8 @@ var classData = [
           {
               "name": "The Alchemist",
               "description": "They said you had no talent for wizardry, no faith for priesthood.  Let them hoard their secrets and pray to their gods; they understand neither.  They call you ‘alchemist', like the charlatans who swindle kings.  You are a natural philosopher.  You have a higher calling.  You take apart the world to see how it works, with flask and scalpel and mind. Modify, improve, discover.  How many metals and salts and substances of all sorts remain unknown or lost to the world?  As many as there are stars in the sky.  Even mortality itself is but a problem that can be understood and conquered. You will descend to the depths, and rip Truth from the womb of the world. You are the Alchemist! ",
-              "author": "Rite Publishing"
+              "author": "Rite Publishing",
+              "authorLink": "http://drivethrurpg.com/browse/pub/2373/Rite-Publishing"
           },
           {
               "name": "The Alchemist",
@@ -1187,7 +1218,8 @@ var classData = [
           {
               "name": "The Battlemind",
               "description": "“We had her outnumbered eight to one. Stupid girl was wearing armor but had no sword. We rushed her and next thing I see is a flash of light and three of me mates were on the ground bloody. Now she's holding a blade of made of crystal. Heck if I know where she got it from. I swear I could hear kids laughing from this blade. Next thing I know she's moving before we can attack. She knew where we were going to be. I was the only one that got away and I'll be damned if I'm going to go back there.” -One Armed Pete upon being asked how he lost the arm. The Battlemind is a heavily armored fighter using psionics to help augment her combat prowess.",
-              "author": "Rambling Games"
+              "author": "Rambling Games",
+              "authorLink": "http://drivethrurpg.com/browse/pub/8244/Rambling-Games"
           },
           {
               "name": "The Battlemind",
@@ -1251,7 +1283,8 @@ var classData = [
           {
             "name": "The Chosen Visitor",
             "description": "The Chosen Visitor is a Dungeon World class for people from present-day Earth who've been sucked into a fantasy world. It draws inspiration on an entire genre of fantasy literature, exemplified by works like Poul Anderson's Three Hearts and Three Lions, as well as anime like Magic Knight Rayearth. Some Chosen Visitors are simply people who do their best to rise to the occasion when thrust into a strange situation, but many manifest strange powers that they themselves can't explain.",
-            "author": "Yaruki Zero Games"
+            "author": "Yaruki Zero Games",
+            "authorLink": "http://drivethrurpg.com/browse/pub/5198/Yaruki-Zero-Games"
           },
           {
               "name": "The Collector",
@@ -1296,7 +1329,7 @@ var classData = [
           {
               "name": "The Magnate",
               "description": "The Magnate is something of an odd name for Dungeon World-instead of being solely devoted to adventure, you are an influential person, with your own land, wealth, and even followers under your control.",
-              "pack": "Johnstone's Dungeon World Character namees",
+              "pack": "Johnstone's Dungeon World Character Classes",
               "author": "Red Box Vancouver",
               "authorLink": "http://www.drivethrurpg.com/browse/pub/4483/Red-Box-Vancouver",
           },
@@ -1324,7 +1357,8 @@ var classData = [
           {
               "name": "The Princess",
               "description": "The Princess is a name that is all about making friends, doing the impossible, and changing the world. This complete name combines femininity, power, and grace in an archetype inspired by feminine heroines like Dorothy Gale, Fionna & Cake, and Usagi Tsukino.",
-              "author": "Headpigeons Productions"
+              "author": "Headpigeons Productions",
+              "authorLink": "http://drivethrurpg.com/browse/pub/5901/Headpigeons-Productions"
           },
           {
               "name": "The Survivor",
@@ -1367,8 +1401,9 @@ var classData = [
           {
             "name": "The Dungeoneer",
             "description": "It is a character name tailored specifically for dungeons and the subterranean environment, evading both magical and mundane traps, and collecting the kinds of treasures one finds down there.",
-            "pack": "Johnstone's Dungeon World Character namees",
-            "author": "Red Box Vancouver"
+            "pack": "Johnstone's Dungeon World Character Classes",
+            "author": "Red Box Vancouver",
+            "authorLink": "http://www.drivethrurpg.com/browse/pub/4483/Red-Box-Vancouver"
           },
           {
             "name": "The Historian",
@@ -1383,17 +1418,20 @@ var classData = [
           {
             "name": "The Maid",
             "description": "All is for my master! The Maid is a new Dungeon World playbook that lets you play as, well, a maid. But a maid inspired by Maid: The Role-Playing Game, trained at the secret Maid Academy in the dangerous Chaos Fist technique that causes Random Events to occur! This is a very silly playbook that will wreak havoc on your Dungeon World game.",
-            "author": "Yaruki Zero Games"
+            "author": "Yaruki Zero Games",
+            "authorLink": "http://drivethrurpg.com/browse/pub/5198/Yaruki-Zero-Games"
           },
           {
             "name": "The Master Blacksmith",
             "description": "Forge new weapons, shields, and armor for you and your allies with modification that bolster your abilities to rule the battlefield. This playbook will provide you with the tools to be creative as well as effective. May the licking flames of the forge inspire you, and your ancestors guide you from within them. Forge your own destiny with... The Master Blacksmith!",
-            "author": "SemiDark Arts"
+            "author": "SemiDark Arts",
+            "authorLink": "http://drivethrurpg.com/browse/pub/6935/SemiDark-Arts"
           },
           {
             "name": "The Master Dancer",
             "description": "With style and grace, no foe can match the speed and fluidity of your movements. Utilize your talents to maneuver around attacks and control your enemy step by step, evolving your plan of attack each step of the way. Glance over the playbook preview to learn how you can become your enemy's worst nightmare, with abilities to parry, deflect, and lock up your foes at your whim. Demonstrate your strength and grace both on and off the battlefield as... The Master Dancer!",
-            "author": "SemiDark Arts"
+            "author": "SemiDark Arts",
+            "authorLink": "http://drivethrurpg.com/browse/pub/6935/SemiDark-Arts"
           },
           {
             "name": "The Rebel",
@@ -1569,7 +1607,8 @@ var classData = [
           {
               "name": "The Kobold",
               "description": "Are you sick of Kobolds getting the short end of the stick? Sick of being considered cannon fodder? Well with this playbook you can be the Kobold you have always wanted to be! Will you become what they see you as? Will you prove them wrong? Will you take over the world for a dragon cult? All these questions can be answered, or you could steal that really shiny sword the fighter has...",
-              "author": "Shadi Alhusary"
+              "author": "Shadi Alhusary",
+              "authorLink": "http://drivethrurpg.com/browse/pub/7021/Shadi-Alhusary"
           },
           {
               "name": "The Kobold",
@@ -1598,7 +1637,8 @@ var classData = [
           },
           {
               "name": "The Orc",
-              "author": "Peter Johansen"
+              "author": "Peter Johansen",
+              "authorLink": "http://www.drivethrurpg.com/browse/pub/6532/Peter-Johansen"
           },
           {
               "name": "The Pixie",
@@ -1615,7 +1655,8 @@ var classData = [
           {
               "name": "The Redcap",
               "description": "Haunter of battlefields, killer of travellers, the fey that nobody really likes. The Redcap is a magical murderer, an unhinged creature that delights in death and doesn't have to play by the rules that govern reality. If you're looking for a damage-dealer with a fey twist, the Redcap is for you",
-              "author": "Bones, Bones, and Bones Games"
+              "author": "Bones, Bones, and Bones Games",
+              "authorLink": "http://drivethrurpg.com/browse/pub/8416/Bones-Bones-and-Bones-Games"
           },
           {
               "name": "The Reptilian",
@@ -1718,7 +1759,8 @@ var classData = [
           },
           {
               "name": "The Giant Spider",
-              "author": "Melissa Fisher of Awful Good Games"
+              "author": "Melissa Fisher of Awful Good Games",
+              "authorLink": "http://www.drivethrurpg.com/browse/pub/5695/Awful-Good-Games"
           },
           {
               "name": "The Horde",
@@ -1782,7 +1824,8 @@ var classData = [
           {
               "name": "The Metamorph",
               "description": "Have you ever wanted to be a terrifying organic monstrosity, unbound by the laws of nature? Shapeshifters, Changelings, Skinwalkers. Adaptable heroes and foes of myth and legend. The Metamorph gives you the opportunity to play a mutable character in Dungeon World, A character that is not bound by race, a survivor, an adaptor, maybe even a destroyer. Do you harbor a greater life than you know? Will you go beyond your limiting physical form, and become something larger in body, mind, and spirit?",
-              "author": "Lee's Lists"
+              "author": "Lee's Lists",
+              "authorLink": "http://drivethrurpg.com/browse/pub/4843/Lees-Lists"
           },
           {
               "name": "The Mutant",
@@ -1814,7 +1857,8 @@ var classData = [
           {
               "name": "The Necromancer",
               "description": "The moan of the Ghoul, the gaze of the Undead. Where others run and scream, you rise like the Zombie and command those that succumbed to the power of the first death. And even if you were to die by the blade of the Paladin or the spell of the Wizard, the grave to you is home with the legions of the dead. As far as you are concerned, corpses are your minions, ready to serve you willingly once they rise to see the light of the sun or the black skies of the darkest night or the shadowy chambers of the murkiest dungeon. As they crawl from the grave, they seem to cry out to you as a babe would to its mother, seeking the taste of raw flesh as the child desires the milk of the nipple. But you are no victim to the hordes of corpses shambling through the night, you are their master.",
-              "author": "El Elyon"
+              "author": "El Elyon",
+              "authorLink": "http://drivethrurpg.com/browse/pub/7555/El-Elyon"
           },
           {
               "name": "The Necromancer"
@@ -1835,7 +1879,8 @@ var classData = [
           {
               "name": "The Ostheomancer",
               "description": "This playbook let you play an Ostheomancer, a master of bones, flesh and blood transmutation. A weird hybrid of magic and physical prowess, this isn't a name for the weak of stomach.",
-              "author": "Duccio Mondanelli"
+              "author": "Duccio Mondanelli",
+              "authorLink": "http://drivethrurpg.com/browse/pub/6882/Duccio-Mondanelli"
           },
         ]
       },
@@ -1874,12 +1919,14 @@ var classData = [
           {
               "name": "The Chimeric",
               "description": "The Chimeric is a dark warrior descended from a bloodline capable of manipulating and molding Malice-the negative energies which permeate the world. With this power, Chimerics are capable of devouring monsters, consuming them for their power. With each kill, their alternate form grows ever more monstrous: a walking manifestation of and testament to Malice. ",
-              "author": "Black Zeppelin Corps"
+              "author": "Black Zeppelin Corps",
+              "authorLink": "http://drivethrurpg.com/browse/pub/7335/Black-Zeppelin-Corps"
           },
           {
               "name": "The Slasher",
               "description": "Do you like scary movies? If so, boy do I have the playbook for you! Unless you're talking like, ghosts horror. If you're terrified by a door opening a few inches on a night vision camera, you probably want a different playbook (like our upcoming Door Opening Ghost!). This playbook is tailored more towards that most ancient and enigmatic of fears: the fear of being stabbed to death by a monster or crazed killer.",
-              "author": "Bones, Bones, and Bones Games"
+              "author": "Bones, Bones, and Bones Games",
+              "authorLink": "http://drivethrurpg.com/browse/pub/8416/Bones-Bones-and-Bones-Games"
           },
         ]
       },
@@ -1924,7 +1971,8 @@ var classData = [
           {
               "name": "The Voidtouched",
               "description": "The Voidtouched is a playbook for Dungeon World, one that allows you to embrace (or combat) your darker side. The Voidtouched relies on fear, insanity, and horrific transformations to combat their foes. When starting out, the Voidtouched can be frail, and their main source of power will be from changing themselves using Gift of the Stars. As they grow in power, however, they can craft homunculi from their enemies' shadows, scare others into obeying them, and even pave the way for their patron to enter this world! Prepare to grapple with powers beyond your imagining as you play the Voidtouched.",
-              "author": "Bryce Duzan"
+              "author": "Bryce Duzan",
+              "authorLink": "http://drivethrurpg.com/browse/pub/6507/Bryce-Duzan"
           },
         ]
       },
@@ -1935,7 +1983,8 @@ var classData = [
           {
               "name": "The Cursed Knight",
               "description": "Maybe it was an accident, maybe it was a choice. Maybe it was destiny. For whatever reason, you were gifted with a dark power. Will you bend its strength towards good, revel in your power and bring the world to its knees, or be consumed utterly by the monster that lurks within you? The cursed knight is a brand new base name for the Dungeon World system. The cursed knight walks a perpetual tightrope, gaining both greater power and greater risk of losing control as it unleashes its dark powers. Customize the nature and origin of your affliction, and choose whether to resist or embrace the corruption with 22 possible advanced moves!",
-              "author": "Timothy Schroder"
+              "author": "Timothy Schroeder",
+              "authorLink": "http://drivethrurpg.com/browse/pub/5554/Timothy-Schroeder"
           },
           {
               "name": "The Deathbringer",
@@ -1971,7 +2020,8 @@ var classData = [
           {
               "name": "The Lich",
               "description": "The lich is the epitome of undead monsters, and now, you can play as one! Raise and command the dead. Use your touch to drain the life out of the living. Practice necrotic rituals. Improve upon your phylactery, the receptacle for your soul. Eventually, you will become a demilich.",
-              "author": "Another D20"
+              "author": "Another D20",
+              "authorLink": "http://drivethrurpg.com/browse/pub/8598/Another-D20"
           },
           {
               "name": "The Lich",
