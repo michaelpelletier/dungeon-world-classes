@@ -31,13 +31,13 @@
         <label>Search Classes: <input ng-model="searchText"></label>
       </div>
 
-      <table ng-repeat="category in classData track by $index">
+      <table ng-repeat="category in classData">
         <thead>
           <tr class="category" ng-click="category.expanded = !category.expanded">
             <td colspan="5" ng-bind="category.name" ng-class="{true:'expanded', false:'collapsed'}[category.expanded]"></td>
           </tr>
         </thead>
-        <tbody ng-if="category.expanded" ng-repeat="subcategory in category.cats track by $index">
+        <tbody ng-if="category.expanded" ng-repeat="subcategory in category.cats">
           <tr class="subcategory" ng-click="subcategory.expanded = !subcategory.expanded">
             <td colspan="5" ng-bind="subcategory.name" ng-class="{true:'expanded', false:'collapsed'}[subcategory.expanded]"></td>
           </tr>
@@ -47,7 +47,7 @@
             <td class="set-column">Pack</td>
             <td class="set-column">Author</td>
           </tr>
-          <tr ng-if="subcategory.expanded" ng-repeat="class in subcategory.classes track by $index | filter:searchText">
+          <tr ng-if="subcategory.expanded" ng-repeat="class in subcategory.classes | filter:searchText">
             <td class="set-column">
               <a ng-bind="class.name" ng-href="{{class.link}}" target="_blank"></a>
             </td>
