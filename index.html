@@ -21,13 +21,27 @@
     <nav>
       <section>
         <a id="logo" href="index.html">Dungeon World Classes</a>
-        <div id="nav-links">
+        <div id="nav-links-desktop">
           <div class="button active" ng-click="focus = 'class'" ng-class="{active: focus === 'class'}">Classes</div>
-          <div class="button" ng-click="focus = 'new'" ng-class="{active: focus === 'new'}">Creating a Class</div>
+          <div class="button" ng-click="focus = 'new'" ng-class="{active: focus === 'new'}">Class Guide</div>
           <div class="button" ng-click="focus = 'resources'" ng-class="{active: focus === 'resources'}">Resources</div>
           <div class="button" ng-click="focus = 'about'" ng-class="{active: focus === 'about'}">About</div>
         </div>
+        <div id="hamburger" ng-click="mobile_menu = !mobile_menu">
+          <div></div>
+          <div></div>
+          <div></div>
+          <span>Menu</span>
+        </div>
       </section>
+      <div id="mobile-menu" ng-class="{active: mobile_menu === true}">
+        <ul>
+          <li class="button active" ng-click="focus = 'class'" ng-class="{active: focus === 'class'}">Classes</li>
+          <li class="button" ng-click="focus = 'new'" ng-class="{active: focus === 'new'}">Class Guide</li>
+          <li class="button" ng-click="focus = 'resources'" ng-class="{active: focus === 'resources'}">Resources</li>
+          <li class="button" ng-click="focus = 'about'" ng-class="{active: focus === 'about'}">About</li>
+        </ul>
+      </div>
     </nav>
 
     <section id="loading" ng-cloak>
