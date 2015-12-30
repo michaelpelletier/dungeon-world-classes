@@ -30,7 +30,7 @@
       </section>
     </nav>
 
-    <section id="classes" ng-show="focus === 'class'">
+    <section id="classes" ng-show="focus === 'class'" ng-cloak>
       <div class="search-section">
         <label>Search Classes: <input ng-model="searchText"></label>
       </div>
@@ -68,11 +68,11 @@
       </table>
     </section>
 
-    <section id="new" ng-show="focus === 'new'">
+    <section id="new" ng-show="focus === 'new'" ng-cloak>
       Creating a Class. http://daegames.blogspot.com/2014/09/dungeon-world-when-you-want-to-write.html
     </section>
 
-    <section id="about" ng-show="focus === 'about'">
+    <section id="about" ng-show="focus === 'about'" ng-cloak>
       <div class="about-sidebar">
         <div class="section-category">About</div>
         <div class="content">
@@ -179,7 +179,7 @@
       </div>
     </section>
 
-    <section id="resources" ng-show="focus === 'resources'">
+    <section id="resources" ng-show="focus === 'resources'" ng-cloak>
       <div class="section-category">Resources</div>
       <div class="section-subcategory">Sites / Communities</div>
       <div class="content">
@@ -203,7 +203,6 @@
         <a href="http://kotnpodcast.blogspot.com/p/campaign-dungeon-world.html">Knights of the Night</a>
       </div>
     </section>
-
 
     <section id="copyright">
       Dungeon World is the work of <a href="http://www.dungeon-world.com" target="_blank">Sage LaTorra and Adam Koebel</a>.<br />
