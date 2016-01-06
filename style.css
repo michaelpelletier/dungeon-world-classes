@@ -121,11 +121,23 @@ input[type="submit"] {
   margin-top: 5px;
 }
 
+.search {
+  padding-right: 20px;
+}
+
+.clear {
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
 /* Labels and Lists for the Comments Form */
 label {
   display: inline-block;
   font-weight: bold;
   margin-top: 20px;
+  position: relative;
 }
 
 label div {
@@ -332,6 +344,23 @@ nav section {
   text-align: right;
   width: 100%;
 }
+
+.tags {
+  font-style: italic;
+}
+
+.tag {
+  background-color: #73C482;
+  border-radius: 3px;
+  color: #FFF;
+  cursor: pointer;
+  font-size: 12px;
+  font-style: normal;
+  padding: 5px;
+  text-transform: lowercase;
+}
+
+
 
 @media (max-width: 768px) {
   .cells {

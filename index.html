@@ -53,7 +53,9 @@
 
     <section id="classes" ng-show="focus === 'class'" ng-cloak>
       <div class="search-section">
-        <label>Search Classes: <input ng-model="searchText"></label>
+        <label>Search Classes: <input ng-model="searchText" class="search">
+        <span class="clear" ng-click="clearSearch()" ng-show="searchText !== ''">x</span>
+        </label>
       </div>
 
       <div class="table" ng-repeat="category in classData">
@@ -71,8 +73,9 @@
               <div class="column set-column class-name">
                 <a ng-bind="class.name" ng-href="{{class.link}}" target="_blank"></a>
               </div>
-              <div class="column" ng-class="{empty: class.description === undefined}">
+              <div class="column" ng-class="{empty: class.description === undefined && class.tags === undefined}">
                 <span ng-bind="class.description"></span>
+                <span ng-if="class.tags" class="tags">Tags: <span ng-repeat="tag in class.tags" ng-bind="tag" class="tag" ng-click="searchTag($event)"></span></span>
               </div>
               <div class="column set-column pack" ng-class="{empty: class.pack === undefined}">
                 <div class-pack content="{{class}}"></div>

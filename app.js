@@ -4,6 +4,16 @@ app.controller('MainCtrl', function($scope) {
   $scope.focus = 'class';
   $scope.classData = classData;
   $scope.submitted = false;
+  $scope.searchText = '';
+
+  $scope.searchTag = function($event) {
+    var text = $event.currentTarget.innerHTML;
+    $scope.searchText = text;
+  };
+
+  $scope.clearSearch = function() {
+    $scope.searchText = '';
+  };
 });
 
 app.directive('classPack', function($compile) {
@@ -81,6 +91,7 @@ var classData = [
           {
             "name": "The Barbarian",
             "link": "https://dl.dropboxusercontent.com/u/3269630/dwdotcom/Dungeon_World_Play_Sheets.pdf",
+            "tags": ["Official"],
             "author": "Adam Koebel and Sage LaTorra",
             "authorLink": "http://www.dungeon-world.com"
           },
