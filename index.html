@@ -10,18 +10,19 @@
     <meta name="description" content="" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
+    <link href='https://fonts.googleapis.com/css?family=Hind:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Metal+Mania' rel='stylesheet' type='text/css'>
     <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.5/angular.min.js"></script>
-    <title>Dungeon World Classes</title>
+    <title>Dungeon World Class DB</title>
   </head>
 
   <body ng-controller="MainCtrl">
     <nav>
       <section>
-        <a id="logo" href="index.html">Dungeon World Classes</a>
+        <a id="logo" href="index.html">Dungeon World Class DB</a>
         <div id="nav-links-desktop">
           <div class="button active" ng-click="focus = 'class'" ng-class="{active: focus === 'class'}">Classes</div>
           <div class="button" ng-click="focus = 'new'" ng-class="{active: focus === 'new'}">Class Guide</div>
@@ -74,7 +75,7 @@
                 <a ng-bind="class.name" ng-href="{{class.link}}" target="_blank"></a>
               </div>
               <div class="column" ng-class="{empty: class.description === undefined && class.tags === undefined}">
-                <span ng-bind="class.description"></span>
+                <div ng-bind="class.description" class="description"></div>
                 <span ng-if="class.tags" class="tags">Tags: <span ng-repeat="tag in class.tags" ng-bind="tag" class="tag" ng-click="searchTag($event)"></span></span>
               </div>
               <div class="column set-column pack" ng-class="{empty: class.pack === undefined}">
@@ -112,7 +113,7 @@
 
       <div class="category">When You Want to Write a Class...</div>
       <div class="content">
-        <p><i>Written by David Guyll on 05 September, 2014. Reposted from <a href="http://daegames.blogspot.com/2014/09/dungeon-world-when-you-want-to-write.html" target="_blank">his blog</a> without permission.</i></p>
+        <p><i>Written by David Guyll on 05 September, 2014. Reposted from <a href="http://daegames.blogspot.com/2014/09/dungeon-world-when-you-want-to-write.html" target="_blank">his blog</a> with permission.</i></p>
         <p>
           Melissa and I have a <a href="http://rpg.drivethrustuff.com/browse.php?cPath=18914_19277" target="_blank">fair share of Dungeon World classes</a>—or playbooks—under our belt, so in an effort to help other people see what goes into this kind of thing (and hopefully better make your own), I figured I'd write a post both detailing our creative process, as well as our own personal do's and dont's.
         </p>
